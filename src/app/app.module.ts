@@ -9,6 +9,9 @@ import { ProdutoListaComponent } from './produtos/produto-lista/produto-lista.co
 import { ProdutoFormularioComponent } from './produtos/produto-formulario/produto-formulario.component';
 import { PedidoListaComponent } from './pedidos/pedido-lista/pedido-lista.component';
 import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-formulario.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { HeaderComponent } from './componentes/header/header.component';
+import { HomeComponent } from './componentes/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-fo
     ProdutoListaComponent,
     ProdutoFormularioComponent,
     PedidoListaComponent,
-    PedidoFormularioComponent
+    PedidoFormularioComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
