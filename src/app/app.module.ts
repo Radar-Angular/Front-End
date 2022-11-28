@@ -12,6 +12,7 @@ import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-fo
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './componentes/home/home.component';
     PedidoFormularioComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
