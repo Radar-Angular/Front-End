@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './area-logada/home/home.component';
+import { EstaLogadoGuard } from './guards/esta-logado.guard';
+import { NaoEstaLogadoGuard } from './guards/nao-esta-logado.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    path: '',
+    loadChildren: () => import('./area-logada/area-logada.module').then(m => m.AreaLogadaModule),
+    canActivate: [EstaLogadoGuard]
   },
   {
-    path: '',
-    component: HomeComponent
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    canActivate: [NaoEstaLogadoGuard]
   },
 ];
 
