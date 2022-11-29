@@ -11,7 +11,7 @@ import { PedidoListaComponent } from './pedidos/pedido-lista/pedido-lista.compon
 import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-formulario.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { HomeComponent } from './componentes/home/home.component';
+import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,7 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PedidoFormularioComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
+   HomeComponent
   ],
   imports: [
     BrowserModule,
