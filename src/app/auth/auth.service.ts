@@ -19,13 +19,14 @@ export class AuthService {
 setUsuario(usuario: Usuario){
   this.usuario = usuario;
   sessionStorage.setItem('usuario', JSON.stringify(usuario))
+  console.log("Caiu aq?")
 }
 
 getUsuario(){
     if(this.usuario) return this.usuario
 
 
-    const usuarioGuardado = localStorage.getItem('usuario')
+    const usuarioGuardado = sessionStorage.getItem('usuario')
 
     if(usuarioGuardado){
       this.usuario = JSON.parse(usuarioGuardado)
@@ -43,7 +44,7 @@ setToken(token: string){
 getToken(){
   if(this.token) return this.token
 
-  const tokenGuardado = localStorage.getItem('token')
+  const tokenGuardado = sessionStorage.getItem('token')
 
   if (tokenGuardado){
     this.token = tokenGuardado
