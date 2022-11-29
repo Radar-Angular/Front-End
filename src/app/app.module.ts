@@ -12,9 +12,9 @@ import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-fo
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { HomeComponent } from './componentes/home/home.component';
-import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,13 +28,13 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

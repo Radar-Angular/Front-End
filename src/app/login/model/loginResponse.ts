@@ -1,5 +1,7 @@
+import { Usuario } from "./usuario";
+
 export interface LoginResponse {
-    usuario: String,
+    usuario: Usuario,
     token: String
 }
 
