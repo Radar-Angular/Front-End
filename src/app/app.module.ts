@@ -11,7 +11,7 @@ import { PedidoListaComponent } from './pedidos/pedido-lista/pedido-lista.compon
 import { PedidoFormularioComponent } from './pedidos/pedido-formulario/pedido-formulario.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { HomeComponent } from './componentes/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
