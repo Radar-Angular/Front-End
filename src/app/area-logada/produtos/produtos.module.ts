@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProdutosRoutingModule } from './produtos-routing.module';
 import { ProdutoFormularioComponent } from './produto-formulario/produto-formulario.component';
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     ProdutosRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })
