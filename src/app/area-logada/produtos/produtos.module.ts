@@ -5,6 +5,7 @@ import { ProdutosRoutingModule } from './produtos-routing.module';
 import { ProdutoFormularioComponent } from './produto-formulario/produto-formulario.component';
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ProdutosRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class ProdutosModule { }
