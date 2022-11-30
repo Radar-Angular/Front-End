@@ -65,6 +65,5 @@ export class AuthService {
     this.token = '';
     sessionStorage.clear();
     this.router.navigate(['login'])
-    console.log('deu logout')
   }
 }
