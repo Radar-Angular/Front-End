@@ -7,7 +7,7 @@
             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <div class="dataTables_length" id="dataTable_length"><label>Mostrar 
+                        <div class="dataTables_length" id="dataTable_length"><label>Mostrar
                                 <select name="dataTable_length" aria-controls="dataTable"
                                     class="form-select form-control form-control-sm">
                                     <option value="10">10</option>
@@ -52,85 +52,13 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td class="sorting_1">1</td>
-                                    <td>Airi Satou</td>
-                                    <td>156.485.484-55</td>
-                                    <td>airi@email.com</td>
-                                    <td>(11) 95848-8484</td>
-                                    <td>Rua do Teste, 123</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">2</td>
-                                    <td>Angelina Ramos</td>
-                                    <td>156.485.484-55</td>
-                                    <td>angelina@email.com</td>
-                                    <td>(11) 96194-8484</td>
-                                    <td>Rua do Front, 454</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">3</td>
-                                    <td>Carlos Cintra</td>
-                                    <td>010.727.010-22</td>
-                                    <td>carlosalm@gmail.com</td>
-                                    <td>(11) 91234-5126</td>
-                                    <td>Rua Girassol, 526</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">4</td>
-                                    <td>Bradley Greer</td>
-                                    <td>108.881.570-70</td>
-                                    <td>biancanickm@gmail.com</td>
-                                    <td>(11) 52642-5126</td>
-                                    <td>Av. Paulista, 1523</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">5</td>
-                                    <td>Jorge Wagner</td>
-                                    <td>925.893.400-87</td>
-                                    <td>jorgeben@gmail.com</td>
-                                    <td>(11) 94125-2348</td>
-                                    <td>Rua Faustolo, 753</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">6</td>
-                                    <td>Luciana Williamson</td>
-                                    <td>774.321.170-39</td>
-                                    <td>lucianasilva@gmail.com</td>
-                                    <td>(49) 93116-3850</td>
-                                    <td>Rua das Pampulhas, 27</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">7</td>
-                                    <td>Clarice Lispector</td>
-                                    <td>516.280.370-75</td>
-                                    <td>claricelinspec@gmail.com</td>
-                                    <td>(96) 92294-1466</td>
-                                    <td>Av. do Estado, 2356</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">8</td>
-                                    <td>Naldo Benny</td>
-                                    <td>393.161.470-00</td>
-                                    <td>naldovan@gmail.com</td>
-                                    <td>(48) 92061-0521</td>
-                                    <td>Rua Espartaco, 73</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">9</td>
-                                    <td>Beatriz Stevens</td>
-                                    <td>730.230.040-21</td>
-                                    <td>beatrizcomp@gmail.com</td>
-                                    <td>(11) 91234-5126</td>
-                                    <td>Rua Isaac Cabral, 759</td>
-                                </tr>
-                                <tr>
-                                    <td class="sorting_1">10</td>
-                                    <td>João Soares</td>
-                                    <td>458.491.513-55</td>
-                                    <td>joao.soares@gmail.com</td>
-                                    <td>(11) 91234-5157</td>
-                                    <td>Rua da Consolação, 151</td>
+                                <tr *ngFor="let cliente of clientes">
+                                    <td>{{cliente.id}}</td>
+                                    <td>{{cliente.nome}}</td>
+                                    <td>{{cliente.cpf}}</td>
+                                    <td>{{cliente.email}}</td>
+                                    <td>{{cliente.telefone}}</td>
+                                    <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -139,7 +67,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-5">
                         <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Mostrando 1 a
-                            10 de 57 clientes</div>
+                            +lenght_atual de +length__clientes clientes</div>
                     </div>
 
                     <!-- Botões mudar página (Anterior + números + Próxima) -->
