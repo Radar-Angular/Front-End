@@ -1,1 +1,33 @@
-<p>produto-formulario works!</p>
+
+<div class="container pt-5">
+
+    <div>
+        <form [formGroup]="produtoForm" class="form-group">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+            </div>
+            <div class="form-group">
+                <label for="descricao">descricao</label>
+                <input type="text" class="form-control" id="descricao" placeholder="Descricão" formControlName="descricao" >
+            </div>
+            <div class="form-group">
+                <label for="Valor">Valor</label>
+                <input type="number" class="form-control" id="valor" placeholder="Valor" formControlName="valor">
+            </div>
+            <div class="form-group">
+                <label for="qtdEstoque">Quantidade</label>
+                <input type="number" class="form-control" id="qtdEstoque" placeholder="qtdEstoque" formControlName="qtdEstoque">
+            </div>
+
+
+            <button class="p-2 align-center" (click)="salvarProduto()">
+                {{idProduto ? 'Salvar Contato' : 'Criar contato'}}
+            </button>
+        </form>
+
+    </div>
+
+
+
+</div>
