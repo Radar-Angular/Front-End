@@ -21,7 +21,7 @@ export class ClienteService {
     return clientes
   }
 
-  public async getClienteById(id: number): Promise<Cliente> {
+  public async getClienteById(id: Number): Promise<Cliente> {
     return await firstValueFrom(this.http.get<Cliente>(`${this.apiUrl}/cliente/${id}`))
   }
 
