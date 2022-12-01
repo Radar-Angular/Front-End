@@ -30,5 +30,5 @@ Projeto desenvolvido como parte da formação "Código do Futuro - Farmarcas".
 
 ## GitStatus:
 ![Commits](https://img.shields.io/github/commit-activity/m/Radar-Angular/Front-End?style=plastic)
-![LastCommit](https://img.shields.io/github/last-commit/Radar-Angular/Front-End)
-![Contributors](https://img.shields.io/github/contributors/Radar-Angular/Front-End)
+![LastCommit](https://img.shields.io/github/last-commit/Radar-Angular/Front-End?style=plastic)
+![Contributors](https://img.shields.io/github/contributors/Radar-Angular/Front-End?style=plastic)
