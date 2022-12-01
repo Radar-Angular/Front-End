@@ -1,27 +1,34 @@
-# RadarFarm
+# RadarFarma - Front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Projeto desenvolvido como parte da formação "Código do Futuro - Farmarcas".
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descrição do projeto
 
-## Code scaffolding
+É uma plataforma de gerenciamento de uma rede de farmácias. Na aplicação contém as informações de: 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Produtos
+- Estoque
+- Base de clientes
+- Pedidos
+- Dashboard, incluindo:
+  - Histórico de Pedidos
+  - Fluxo de caixa
+  - Vendas realizadas
+  - Forecast faturamento
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Tecnologias utilizadas foram: 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) <br/>
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## GitStatus:
+![Commits](https://img.shields.io/github/commit-activity/m/Radar-Angular/Front-End?style=plastic)
+![LastCommit](https://img.shields.io/github/last-commit/Radar-Angular/Front-End?style=plastic)
+![Contributors](https://img.shields.io/github/contributors/Radar-Angular/Front-End?style=plastic)

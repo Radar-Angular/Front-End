@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute,Router  } from '@angular/router';
 import { Produto } from 'src/app/shared/models/produto';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 
@@ -12,7 +12,7 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 export class ProdutoFormularioComponent implements OnInit {
 
   constructor(
-    private produtoService: ProdutoService,
+    private produtoService:ProdutoService,
     private formsBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -32,7 +32,7 @@ export class ProdutoFormularioComponent implements OnInit {
     }
   }
 
-  IniciarFormulario() {
+  IniciarFormulario(){
     this.produtoForm = this.formsBuilder.group({
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
@@ -56,7 +56,7 @@ salvar(){
   else{
     this.produtoService.postProduto(this.produtoForm.value)
   }
-  // this.router.navigate(['produtos'])
+  this.router.navigate(['produtos'])
 }
 
 
