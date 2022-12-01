@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,Router  } from '@angular/router';
+import { Produto } from 'src/app/shared/models/produto';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 
 @Component({
@@ -17,12 +18,18 @@ export class ProdutoFormularioComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
-  idProduto: number = 0;
+  titulo: string = "Novo Produto"
+  public produto: Produto = {} as Produto
   produtoForm!: FormGroup;
 
 
 
   ngOnInit(): void {
+    this.IniciarFormulario();
+    let id:number =this.route.snapshot.params['id']
+    if(id){
+      this.atualizarProduto(id)
+    }
   }
 
   IniciarFormulario(){
@@ -35,8 +42,24 @@ export class ProdutoFormularioComponent implements OnInit {
 
   }
 
-  getProduto(){
-    const idProduto = this.route.snapshot.paramMap.get('id')
+
+  private async atualizarProduto(id: Number){
+    this.titulo = "Alterando Produto"
+    this.produto = await this.produtoService.getProdutoById(this.produto.id)
   }
+
+
+salvar(){
+  if(this.produto.id > 0){
+    this.produtoService.putProduto(this.produtoForm.value)
+  }
+  else{
+    this.produtoService.postProduto(this.produtoForm.value)
+  }
+  this.router.navigate(['produtos'])
+}
+
+
+
 
 }
