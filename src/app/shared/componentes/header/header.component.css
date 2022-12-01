@@ -1,3 +1,29 @@
 .cor-texto {
     color: white;
 }
+
+.cor-texto:hover {
+  color: var(--laranja-logo);
+}
+
+.logout {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout:hover {
+  color: red;
+}
+
+.logo-header {
+  width: 270px;
+}
+
+.img-sair {
+  cursor: pointer;
+}
+
+.align-items {
+  display: flex;
+  align-items: center;
+}
