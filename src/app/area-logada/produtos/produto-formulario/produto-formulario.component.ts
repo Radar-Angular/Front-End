@@ -18,17 +18,17 @@ export class ProdutoFormularioComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
-  idProduto: any;
-  produtoForm!: FormGroup;
+  titulo: string = "Novo Produto"
   public produto: Produto = {} as Produto
+  produtoForm!: FormGroup;
 
 
 
   ngOnInit(): void {
     this.IniciarFormulario();
-    this.idProduto = this.route.snapshot.params['id']
-    if (this.idProduto) {
-      this.getProduto();
+    let id:number =this.route.snapshot.params['id']
+    if(id){
+      this.atualizarProduto(id)
     }
   }
 
@@ -42,22 +42,24 @@ export class ProdutoFormularioComponent implements OnInit {
 
   }
 
-  private async getProduto() {
-    const idProduto = this.route.snapshot.params['id']
-    await this.produtoService.getProdutoById(idProduto);
+
+  private async atualizarProduto(id: Number){
+    this.titulo = "Alterando Produto"
+    this.produto = await this.produtoService.getProdutoById(this.produto.id)
   }
 
-  salvarProduto() {
-    if (this.idProduto > 0) {
-      this.produtoService.putProduto(this.produtoForm.value)
-      this.router.navigate(['produtos'])
-    }
-    else {
-      (this.produtoService.postProduto(this.produtoForm.value))
-      this.router.navigate(['produtos'])
-    }
 
+salvar(){
+  if(this.produto.id > 0){
+    this.produtoService.putProduto(this.produtoForm.value)
   }
+  else{
+    this.produtoService.postProduto(this.produtoForm.value)
+  }
+  // this.router.navigate(['produtos'])
+}
+
+
 
 
 }
