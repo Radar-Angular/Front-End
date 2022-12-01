@@ -2,6 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 :root {
+  --brackground-dark: #1a1918;
   --laranja-farmarcas: #fe4c02;
   --laranja-logo: #ff5510;
 }
