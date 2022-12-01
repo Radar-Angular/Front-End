@@ -3,7 +3,7 @@ import { Cliente } from "./cliente";
 
 export interface Pedido {
     id: number,
-    cliente?: Cliente | null,
+    idCliente?: Cliente | null,
     valor_total: number,
     data: Date
 

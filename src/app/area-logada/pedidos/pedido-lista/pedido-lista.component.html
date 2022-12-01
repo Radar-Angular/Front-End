@@ -22,7 +22,7 @@
             <tbody>
               <tr *ngFor="let pedido of pedidos">
                 <td>{{pedido.id}}</td>
-                <td>{{pedido.cliente}}</td>
+                <td>{{pedido.idCliente}}</td>
                 <td>{{pedido.valor_total}}</td>
                 <td>{{pedido.data}}</td>
                 <td><a class="btn btn-warning" routerLink="/client-alterar/{{pedido.id}}">Alterar</a></td>
