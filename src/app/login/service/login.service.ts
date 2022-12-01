@@ -9,7 +9,7 @@ import { LoginResponse } from '../model/loginResponse';
 })
 export class LoginService {
 
-  emailMoc = "admin@radarfarm.com"
+  emailMoc = "admin@radarfarma.com"
   senhaMoc = "12345678"
 
   constructor(
