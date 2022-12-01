@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.fundo-laranja-farmarcas {
+    background-color: RGBA(254, 76, 2, 0.65);
+
+}
+
+.cor-laranja-farmarcas {
+    color: #fe4c02;
+}
