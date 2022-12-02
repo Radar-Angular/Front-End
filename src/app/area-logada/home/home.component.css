@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .bg-dark {
   background-color: var(--brackground-dark);
 }
@@ -1261,7 +1263,6 @@ h6 {
 }
 
 /* TABELAS ESTOQUE */
-@charset "UTF-8";
 
 table.dataTable {
   clear: both;
