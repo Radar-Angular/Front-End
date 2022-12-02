@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg text-uppercase no-repeat" style="background-color: #212631;" id="mainNav">
+<nav class="navbar navbar-expand-lg text-uppercase no-repeat" style="background-color: #000;" id="mainNav">
     <div class="container">
 
         <a class="navbar-brand" routerLink="/">
-            <img src="../../../assets/logo_radarfarma.png" width="190" height="60" class="d-inline-block align-top"
+            <img src="../../../assets/logo_menu.png" class="d-inline-block align-top logo-header"
                 alt="logo">
         </a>
 
@@ -18,7 +18,7 @@
             </svg>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items">
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded cor-texto" routerLink="/produtos">Produtos</a>
                 </li>
@@ -32,8 +32,10 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded cor-texto" routerLink="/fluxo-de-caixa">Fluxo de
                         caixa</a>
                 </li>
-                <li class="nav-item mx-0 mx-lg-1 btn btn-outline-danger btn-sm">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded cor-texto" (click)="logoutOpcao()">Logout</a>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn-sm logout img-sair" (click)="logoutOpcao()">
+                      <img src="../../../../assets/icons-sair.png" alt="Sair">
+                    </a>
                 </li>
             </ul>
         </div>
