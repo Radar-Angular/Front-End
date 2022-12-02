@@ -1,1 +1,38 @@
-<p>pedido-lista works!</p>
+<section class="page-section" id="contact" style="margin-top: 100px;">
+  <div class="container">
+    <!-- Contact Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Pedidos</h2>
+    <br>
+    <!-- Contact Section Form-->
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+        <div *ngIf="pedidos.length == 0" class="alert alert-primary" role="alert">
+          Não existe pedidos cadastrados
+        </div>
+        <table *ngIf="pedidos.length > 0" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">ValorTotal</th>
+              <th scope="col">data</th>
+              <th scope="col" colspan="2">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          
+            <tr *ngFor="let pedido of pedidos">
+              <td>{{pedido.id}}</td>
+              <td *ngIf="pedido.idCliente == 0">{{cliente.id}</td>
+              <td>{{pedido.valor_total}}</td>
+              <td>{{pedido.data}}</td>
+              <td><a class="btn btn-warning" routerLink="/client-alterar/{{pedido.id}}">Alterar</a></td>
+              <!-- <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
