@@ -30,7 +30,7 @@ export class ProdutoService {
       }
 
       public async postProduto(produto: Produto): Promise<Produto>{
-        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produto`,produto))
+        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos/`,produto))
         return produtoRest
       }
 
