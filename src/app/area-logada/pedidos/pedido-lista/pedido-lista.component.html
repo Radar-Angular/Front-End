@@ -1,11 +1,11 @@
-<section class="page-section" id="contact" style="margin-top: 100px;">
-  <div class="container">
+<section class="container page-section" id="contact" style="margin-top: 100px;">
+  <div class="">
     <!-- Contact Section Heading-->
     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Pedidos</h2>
     <br>
     <!-- Contact Section Form-->
     <div class="row justify-content-center">
-      <div class="col-lg-8 col-xl-7">
+      <div>
         <div *ngIf="pedidos.length == 0" class="alert alert-primary" role="alert">
           Não existe pedidos cadastrados
         </div>
@@ -21,7 +21,7 @@
           </thead>
           <tbody>
 
-          
+
             <tr *ngFor="let pedido of pedidos">
               <td>{{pedido.id}}</td>
               <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
