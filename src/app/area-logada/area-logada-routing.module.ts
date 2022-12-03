@@ -16,18 +16,22 @@ const routes: Routes = [
       loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
     },
     {
-      path:'clientes',
+      path: 'clientes',
       loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesModule)
     },
     {
-      path:'produtos',
+      path: 'produtos',
       loadChildren: () => import('./produtos/produtos.module').then(m => m.ProdutosModule)
     },
     {
-      path:'pedidos',
+      path: 'pedidos',
       loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule)
     },
-  ]
+    {
+      path: 'fluxo-de-caixa',
+      loadChildren: () => import('./fluxo-de-caixa/fluxo-de-caixa.module').then(m => m.FluxoDeCaixaModule)
+    },
+    ]
   }
 ];
 
