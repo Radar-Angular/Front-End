@@ -22,7 +22,7 @@ export class ProdutoService {
       }
 
       public async getProdutoById(id:number) : Promise<Produto>{
-        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produto/${id}`))
+        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produtos/${id}`))
       }
 
       public async getProdutoByNome(nome: string) : Promise<Produto>{
@@ -35,7 +35,7 @@ export class ProdutoService {
       }
 
       public async putProduto(produto: Produto): Promise<Produto>{
-        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos/${produto.id}`, produto))
+        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos`, produto))
         return produtoRest
       }
 

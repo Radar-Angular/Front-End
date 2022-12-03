@@ -24,10 +24,19 @@ produtos: Produto[] = []
 
  private async buscarProdutos(){
  this.produtos = await this.produtoService.getProdutos();
+ console.log("aqui estas")
   }
 
   editarContato(idProduto: number){
     this.router.navigate([`produtos/${idProduto}/editar`])
     }
+
+   async excluir(produto: Produto){
+      if(confirm("Deseja mesmo excluir esse produto?"))
+     await this.produtoService.deleteClienteById(produto.id)
+       this.buscarProdutos()  
+
+    }
+    
 
 }
