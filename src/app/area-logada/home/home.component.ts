@@ -2,6 +2,8 @@ import { Component, OnInit, ɵpublishDefaultGlobalUtils } from '@angular/core';
 import { end } from '@popperjs/core';
 import { Chart, registerables } from 'node_modules/chart.js'
 import { bindCallback } from 'rxjs';
+import { Pedido } from 'src/app/shared/models/pedido';
+import { PedidoService } from 'src/app/shared/services/pedido.service';
 Chart.register(...registerables);
 
 @Component({
@@ -11,11 +13,24 @@ Chart.register(...registerables);
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    private pedidoService : PedidoService
+  ) {}
 
   ngOnInit(): void {
     this.RenderChart();
+    this.calculavalores();
 
+  }
+
+  pedido:Pedido[] = []
+  valorTotal: number = 0
+   async calculavalores(){
+  this.pedido =  await this.pedidoService.getPedidos()
+    this.pedido.forEach(item => {
+     this.valorTotal = this.valorTotal + item.valorTotal
+     console.log(this.valorTotal)
+    });
   }
 
   RenderChart() {
