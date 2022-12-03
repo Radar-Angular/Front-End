@@ -1,37 +1,20 @@
-import { Component, OnInit, ɵpublishDefaultGlobalUtils } from '@angular/core';
-import { end } from '@popperjs/core';
+import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
-import { bindCallback } from 'rxjs';
-import { Pedido } from 'src/app/shared/models/pedido';
-import { PedidoService } from 'src/app/shared/services/pedido.service';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-fluxo-de-caixa',
+  templateUrl: './fluxo-de-caixa.component.html',
+  styleUrls: ['./fluxo-de-caixa.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FluxoDeCaixaComponent implements OnInit {
 
-  constructor(
-    private pedidoService : PedidoService
-  ) {}
+  constructor() { }
 
   ngOnInit(): void {
     this.RenderChart();
-    this.calculavalores();
-
   }
 
-  pedido:Pedido[] = []
-  valorTotal: number = 0
-   async calculavalores(){
-  this.pedido =  await this.pedidoService.getPedidos()
-    this.pedido.forEach(item => {
-     this.valorTotal = this.valorTotal + item.valorTotal
-     console.log(this.valorTotal)
-    });
-  }
 
   RenderChart() {
     const myChart = new Chart("grafVendas", {
@@ -70,7 +53,7 @@ export class HomeComponent implements OnInit {
           data: [12, 19, 3, 5, 2, 3, 15, 20, 12, 13, 18, 19],
           borderWidth: 1,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)', 
+            'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 205, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
@@ -99,3 +82,4 @@ export class HomeComponent implements OnInit {
     });
   }
 }
+

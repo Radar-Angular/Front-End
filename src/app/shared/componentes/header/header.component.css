@@ -27,3 +27,7 @@
   display: flex;
   align-items: center;
 }
+
+.menu-ativado {
+  color: var(--laranja-farmarcas);
+}

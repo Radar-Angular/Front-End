@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ProdutosRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class ProdutosModule { }
