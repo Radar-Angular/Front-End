@@ -11,6 +11,7 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 export class ProdutoListaComponent implements OnInit {
 
   produtos: Produto[] = []
+  produto: Produto = {} as Produto
 
   constructor(
     private produtoService: ProdutoService,
@@ -37,10 +38,10 @@ export class ProdutoListaComponent implements OnInit {
     this.buscarProdutos()
   }
 
-  private async addProdutos() {
-    this.produtos = await this.produtoService.getProdutos();
+  public async addProduto(produto: Produto) {
+    if (confirm("Deseja mesmo adicionar este produto?"))
+      await this.produtoService.postProduto(this.produto)
+    this.buscarProdutos()
   }
-
-
 
 }
