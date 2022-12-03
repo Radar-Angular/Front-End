@@ -30,7 +30,7 @@
                       <td>{{produto.descricao}}</td>
                       <td>{{produto.valor}}</td>
                       <td>{{produto.qtdEstoque}}</td>
-                      <td><a class="btn btn-warning" routerLink="/client-alterar/{{produto.id}}">Alterar</a></td>
+                      <td> <button class="btn btn-waring" (click)="editarContato(produto.id)">Alterar</button> </td>
                       <!-- <td><button class="btn btn-danger" (click)="excluir(produto)">Excluir</button></td> -->
                     </tr>
                   </tbody>
