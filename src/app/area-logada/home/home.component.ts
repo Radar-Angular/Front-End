@@ -6,6 +6,8 @@ import { Cliente } from 'src/app/shared/models/cliente';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { PedidoService } from 'src/app/shared/services/pedido.service';
+import { Produto } from 'src/app/shared/models/produto';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
 Chart.register(...registerables);
 
 @Component({
@@ -18,18 +20,22 @@ export class HomeComponent implements OnInit {
   constructor(
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
+    private produtoService: ProdutoService,
   ) { }
 
   ngOnInit(): void {
     this.RenderChart();
     this.calculavalores();
-    this.getPedidos()
+    this.getPedidos();
+    this.getProdutos();
   }
 
   pedido: Pedido[] = []
   pedidos: Pedido[] = []
   clientes: Cliente[] = []
   cliente: Cliente = {} as Cliente
+  produto: Produto[] = []
+  produtos: Produto[] = []
 
 
   valorTotal: number = 0
@@ -41,12 +47,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // TABELA PEDIDOS
   private async getPedidos() {
     this.pedidos = await this.pedidoService.getPedidos();
   }
 
   public async getClientes() {
     this.clientes = await this.clienteService.getClientes();
+  }
+
+  // TABELA ESTOQUE
+  private async getProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
   }
 
   RenderChart() {
