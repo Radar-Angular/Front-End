@@ -37,7 +37,9 @@ export class ProdutoListaComponent implements OnInit {
     this.buscarProdutos()
   }
 
-  
+  private async addProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
+  }
 
 
 
