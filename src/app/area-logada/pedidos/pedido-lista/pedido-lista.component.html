@@ -24,8 +24,8 @@
           
             <tr *ngFor="let pedido of pedidos">
               <td>{{pedido.id}}</td>
-              <td *ngIf="pedido.idCliente">{{cliente.id}</td>
-              <td>{{pedido.valor_total}}</td>
+              <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
+              <td>{{pedido.valorTotal}}</td>
               <td>{{pedido.data}}</td>
               <td><a class="btn btn-warning" routerLink="/client-alterar/{{pedido.id}}">Alterar</a></td>
               <!-- <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td> -->

@@ -15,9 +15,10 @@ export class PedidoService {
 
 
     public async getPedidos():Promise<Pedido[]> {
-      let pedidos:Pedido[] = await firstValueFrom(this.http.get<Pedido[]>(`${this.apiUrl}/pedidos`))
+      let pedidos:Pedido[] = await firstValueFrom(this.http.get<Pedido[]>(`${this.apiUrl}/pedidos/all`))
       return pedidos
     }
+    
 
    
     public async getPedidoById(id:number) : Promise<Pedido>{
