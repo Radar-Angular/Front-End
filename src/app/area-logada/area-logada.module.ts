@@ -8,13 +8,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
     declarations: [
-        AreaLogadaComponent
+        AreaLogadaComponent,
     ],
     imports: [
         CommonModule,
         AreaLogadaRoutingModule,
         SharedModule,
-       
     ]
 })
 export class AreaLogadaModule { }
