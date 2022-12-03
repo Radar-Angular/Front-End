@@ -26,7 +26,7 @@
               <td>{{pedido.id}}</td>
               <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
               <td>R$ {{pedido.valorTotal}}</td>
-              <td>{{pedido.data}}</td>
+              <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
               <td><a class="btn btn-warning" routerLink="/client-alterar/{{pedido.id}}">Alterar</a></td>
               <!-- <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td> -->
             </tr>
