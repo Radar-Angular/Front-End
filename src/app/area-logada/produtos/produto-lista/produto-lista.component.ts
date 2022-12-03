@@ -10,33 +10,37 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 })
 export class ProdutoListaComponent implements OnInit {
 
-produtos: Produto[] = []
+  produtos: Produto[] = []
 
   constructor(
     private produtoService: ProdutoService,
-    private router : Router,
-    private route : ActivatedRoute,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.buscarProdutos();
   }
 
- private async buscarProdutos(){
- this.produtos = await this.produtoService.getProdutos();
- console.log("aqui estas")
+  private async buscarProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
+    console.log("aqui esta")
   }
 
-  editarContato(idProduto: number){
+  editarContato(idProduto: number) {
     this.router.navigate([`produtos/${idProduto}/editar`])
-    }
+  }
 
-   async excluir(produto: Produto){
-      if(confirm("Deseja mesmo excluir esse produto?"))
-     await this.produtoService.deleteClienteById(produto.id)
-       this.buscarProdutos()  
+  async excluir(produto: Produto) {
+    if (confirm("Deseja mesmo excluir esse produto?"))
+      await this.produtoService.deleteClienteById(produto.id)
+    this.buscarProdutos()
+  }
 
-    }
-    
+  private async addProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
+  }
+
+
 
 }
