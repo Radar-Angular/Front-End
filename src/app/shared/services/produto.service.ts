@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first, firstValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { SortingInterface } from '../interface/sorting.interface';
 import { Produto } from '../models/produto';
 
 @Injectable({
@@ -42,6 +43,14 @@ export class ProdutoService {
 
       public deleteClienteById(id:number){
         firstValueFrom(this.http.delete(`${this.apiUrl}/produtos/${id}`))
+      }
+
+      getProdutosLista(
+        sorting: SortingInterface,
+        searchValue: string
+      ): Observable<Produto[]> {
+        const url = `http://localhost:4200/produtos?_sort=${sorting.column}&_order=${sorting.order}`;
+        return this.http.get<Produto[]>(url);
       }
 
 }

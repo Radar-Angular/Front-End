@@ -20,7 +20,8 @@
                 <label for="qtdEstoque">Quantidade</label>
                 <input type="number" class="form-control" id="qtdEstoque" placeholder="qtdEstoque" name="qtdEstoque" [(ngModel)]="produto.qtdEstoque">
             </div>
-
+            
+            <br>
 
             <button class="p-2 align-center" (click)="salvar()">
                 {{produto.id ? 'Salvar Produto' : 'Adicionar novo Produto'}}
