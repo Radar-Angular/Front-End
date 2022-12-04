@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/shared/models/cliente';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
@@ -13,7 +14,8 @@ export class PedidoListaComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private route: Router
     ) { }
 
     
@@ -35,19 +37,12 @@ export class PedidoListaComponent implements OnInit {
     this.clientes = await this.clienteService.getClientes();
   }
 
-  private async getClienteById(id: Number){
-        for(let i = 0; i < this.pedidos.length; i++){
-          if(this.pedidos[i].id ==  this.clientes[i].id){
-            id = this.clientes[i].id
-          }
-        this.cliente =  await this.clienteService.getClienteById(id)
-        }
-  }
 
-// var clienteTemplate = this.clientes.map(cliente => {
-//     cliente.id = this.pedidos.filter(pedidos => cliente.id === pedidos.idCliente)
-//     return cliente
-// })
+
+alterar(idContato: Number){
+  this.route.navigate([`pedidos/${idContato}/editar`])
+}
+
 
 
 

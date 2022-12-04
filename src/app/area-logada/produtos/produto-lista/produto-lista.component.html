@@ -1,38 +1,88 @@
 <section class="page-section" id="contact" style="margin-top: 100px;">
   <div class="container">
-    <!-- Contact Section Heading-->
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Produtos</h2>
-    <br>
-    <!-- Contact Section Form-->
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-xl-7">
-        <div *ngIf="produtos.length == 0" class="alert alert-primary" role="alert">
-          Não existe produtos cadastrados
+    <div class="card shadow">
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Produtos</h2>
+      <br>
+      <div class="row justify-content-center">
+        <div>
+          <div *ngIf="produtos.length == 0" class="alert alert-primary" role="alert">
+            Não existe produtos cadastrados
+          </div>
+          <table *ngIf="produtos.length > 0" class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col" colspan="2">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td><input class="form-control" type="text"></td>
+                <td><input class="form-control" type="text"></td>
+                <td><input class="form-control" type="number"></td>
+                <td><input class="form-control" type="number"></td>
+                <button type="button" class="btn-add btn btn-outline-success" (click)="addProduto()">Adicionar</button>
+              </tr>
+              <tr *ngFor="let produto of produtos">
+                <td>{{produto.id}}</td>
+                <td>{{produto.nome}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.valor}}</td>
+                <td>{{produto.qtdEstoque}}</td>
+                <td>
+                  <ul style="list-style: none;">
+                    <li class="btn-li"><button class="btn btn-outline-warning"
+                        (click)="editarContato(produto.id)">Alterar</button></li>
+                    <li class="btn-li"><button class="btn btn-outline-danger"
+                        (click)="excluir(produto)">excluir</button>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <table *ngIf="produtos.length > 0" class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Descricao</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Quantidade</th>
-              <th scope="col" colspan="2">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let produto of produtos">
-              <td>{{produto.id}}</td>
-              <td>{{produto.nome}}</td>
-              <td>{{produto.descricao}}</td>
-              <td>{{produto.valor}}</td>
-              <td>{{produto.qtdEstoque}}</td>
-              <td><a class="btn btn-warning" routerLink="/client-alterar/{{produto.id}}">Alterar</a></td>
-              <!-- <td><button class="btn btn-danger" (click)="excluir(produto)">Excluir</button></td> -->
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
 </section>
+
+
+<div>
+  <div class="search-bar">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+      <input
+        type="text"
+        placeholder="Search..."
+        formControlName="searchValue"
+      />
+    </form>
+  </div>
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let column of columns"
+          class="users-table-cell"
+          (click)="sortTable(column)"
+        >
+          {{ capitalize(column) }}
+          <span *ngIf="isDescSorting(column)">▼</span>
+          <span *ngIf="isAscSorting(column)">▲</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td *ngFor="let column of columns" class="users-table-cell">
+          {{ produto[column] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

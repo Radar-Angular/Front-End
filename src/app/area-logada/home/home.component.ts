@@ -2,6 +2,12 @@ import { Component, OnInit, ɵpublishDefaultGlobalUtils } from '@angular/core';
 import { end } from '@popperjs/core';
 import { Chart, registerables } from 'node_modules/chart.js'
 import { bindCallback } from 'rxjs';
+import { Cliente } from 'src/app/shared/models/cliente';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
+import { Pedido } from 'src/app/shared/models/pedido';
+import { PedidoService } from 'src/app/shared/services/pedido.service';
+import { Produto } from 'src/app/shared/models/produto';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
 Chart.register(...registerables);
 
 @Component({
@@ -11,11 +17,48 @@ Chart.register(...registerables);
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    private pedidoService: PedidoService,
+    private clienteService: ClienteService,
+    private produtoService: ProdutoService,
+  ) { }
 
   ngOnInit(): void {
     this.RenderChart();
+    this.calculavalores();
+    this.getPedidos();
+    this.getProdutos();
+  }
 
+  pedido: Pedido[] = []
+  pedidos: Pedido[] = []
+  clientes: Cliente[] = []
+  cliente: Cliente = {} as Cliente
+  produto: Produto[] = []
+  produtos: Produto[] = []
+
+
+  valorTotal: number = 0
+  async calculavalores() {
+    this.pedido = await this.pedidoService.getPedidos()
+    this.pedido.forEach(item => {
+      this.valorTotal = this.valorTotal + item.valorTotal
+      console.log(this.valorTotal)
+    });
+  }
+
+  // TABELA PEDIDOS
+  private async getPedidos() {
+    this.pedidos = await this.pedidoService.getPedidos();
+  }
+
+  public async getClientes() {
+    this.clientes = await this.clienteService.getClientes();
+  }
+
+  // TABELA ESTOQUE
+  private async getProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
   }
 
   RenderChart() {
@@ -55,7 +98,7 @@ export class HomeComponent implements OnInit {
           data: [12, 19, 3, 5, 2, 3, 15, 20, 12, 13, 18, 19],
           borderWidth: 1,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)', 
+            'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 205, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',

@@ -1,9 +1,9 @@
-import { Cliente } from "./cliente";
+
 
 
 export interface Pedido {
-    id: number,
-    valor_total: number,
+    id: Number,
+    valorTotal: number,
     data: Date,
     idCliente: number
 }

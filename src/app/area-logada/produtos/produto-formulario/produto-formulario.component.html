@@ -2,27 +2,29 @@
 <div class="container pt-5">
 
     <div>
-        <form [formGroup]="produtoForm" class="form-group">
+        <form id="produtoForm" class="form-group">
             <div>
+                <h2>{{titulo}}</h2>
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" [(ngModel)]="produto.nome">
             </div>
             <div class="form-group">
                 <label for="descricao">descricao</label>
-                <input type="text" class="form-control" id="descricao" placeholder="Descricão" formControlName="descricao" >
+                <input type="text" class="form-control" id="descricao"  placeholder="Descricão" name="descricao" [(ngModel)]="produto.descricao" >
             </div>
             <div class="form-group">
                 <label for="Valor">Valor</label>
-                <input type="number" class="form-control" id="valor" placeholder="Valor" formControlName="valor">
+                <input type="number" class="form-control" id="valor" placeholder="Valor" name="valor" [(ngModel)]="produto.valor">
             </div>
             <div class="form-group">
                 <label for="qtdEstoque">Quantidade</label>
-                <input type="number" class="form-control" id="qtdEstoque" placeholder="qtdEstoque" formControlName="qtdEstoque">
+                <input type="number" class="form-control" id="qtdEstoque" placeholder="qtdEstoque" name="qtdEstoque" [(ngModel)]="produto.qtdEstoque">
             </div>
-
+            
+            <br>
 
             <button class="p-2 align-center" (click)="salvar()">
-                {{produto.id ? 'Salvar Contato' : 'Criar contato'}}
+                {{produto.id ? 'Salvar Produto' : 'Adicionar novo Produto'}}
             </button>
         </form>
 
