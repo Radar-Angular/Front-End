@@ -51,3 +51,38 @@
     </div>
   </div>
 </section>
+
+
+<div>
+  <div class="search-bar">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+      <input
+        type="text"
+        placeholder="Search..."
+        formControlName="searchValue"
+      />
+    </form>
+  </div>
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let column of columns"
+          class="users-table-cell"
+          (click)="sortTable(column)"
+        >
+          {{ capitalize(column) }}
+          <span *ngIf="isDescSorting(column)">▼</span>
+          <span *ngIf="isAscSorting(column)">▲</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td *ngFor="let column of columns" class="users-table-cell">
+          {{ produto[column] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
