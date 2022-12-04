@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './area-logada/home/home.component';
 import { EstaLogadoGuard } from './shared/guards/esta-logado.guard';
 import { NaoEstaLogadoGuard } from './shared/guards/nao-esta-logado.guard';
 

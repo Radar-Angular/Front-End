@@ -17,31 +17,31 @@ export class ProdutoService {
 
 
     public async  getProdutos() : Promise<Produto[]>{
-        let produtos:Produto[] = await firstValueFrom(this.http.get<Produto[]>(`${this.apiUrl}/produtos`))
+        let produtos:Produto[] = await firstValueFrom(this.http.get<Produto[]>(`${this.apiUrl}/produtos/all`))
         return produtos
       }
 
       public async getProdutoById(id:number) : Promise<Produto>{
-        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produto/${id}`))
+        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produtos/${id}`))
       }
 
       public async getProdutoByNome(nome: string) : Promise<Produto>{
-        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produtos/${nome}`))
+        return await firstValueFrom(this.http.get<Produto>(`${this.apiUrl}/produtos/nome/${nome}`))
       }
 
       public async postProduto(produto: Produto): Promise<Produto>{
-        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produto`,produto))
+        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos`,produto))
         return produtoRest
       }
 
       public async putProduto(produto: Produto): Promise<Produto>{
-        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produto/${produto.id}`, produto))
+        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos`, produto))
         return produtoRest
       }
 
 
       public deleteClienteById(id:number){
-        firstValueFrom(this.http.delete(`${this.apiUrl}/produto/${id}`))
+        firstValueFrom(this.http.delete(`${this.apiUrl}/produtos/${id}`))
       }
 
 }
