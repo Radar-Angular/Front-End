@@ -1,65 +1,20 @@
-import { Component, OnInit, ɵpublishDefaultGlobalUtils } from '@angular/core';
-import { end } from '@popperjs/core';
+import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
-import { bindCallback } from 'rxjs';
-import { Cliente } from 'src/app/shared/models/cliente';
-import { ClienteService } from 'src/app/shared/services/cliente.service';
-import { Pedido } from 'src/app/shared/models/pedido';
-import { PedidoService } from 'src/app/shared/services/pedido.service';
-import { Produto } from 'src/app/shared/models/produto';
-import { ProdutoService } from 'src/app/shared/services/produto.service';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-fluxo-de-caixa',
+  templateUrl: './fluxo-de-caixa.component.html',
+  styleUrls: ['./fluxo-de-caixa.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FluxoDeCaixaComponent implements OnInit {
 
-  constructor(
-    private pedidoService: PedidoService,
-    private clienteService: ClienteService,
-    private produtoService: ProdutoService,
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.RenderChart();
-    this.calculavalores();
-    this.getPedidos();
-    this.getProdutos();
   }
 
-  pedido: Pedido[] = []
-  pedidos: Pedido[] = []
-  clientes: Cliente[] = []
-  cliente: Cliente = {} as Cliente
-  produto: Produto[] = []
-  produtos: Produto[] = []
-
-
-  valorTotal: number = 0
-  async calculavalores() {
-    this.pedido = await this.pedidoService.getPedidos()
-    this.pedido.forEach(item => {
-      this.valorTotal = this.valorTotal + item.valorTotal
-      console.log(this.valorTotal)
-    });
-  }
-
-  // TABELA PEDIDOS
-  private async getPedidos() {
-    this.pedidos = await this.pedidoService.getPedidos();
-  }
-
-  public async getClientes() {
-    this.clientes = await this.clienteService.getClientes();
-  }
-
-  // TABELA ESTOQUE
-  private async getProdutos() {
-    this.produtos = await this.produtoService.getProdutos();
-  }
 
   RenderChart() {
     const myChart = new Chart("grafVendas", {
@@ -127,3 +82,4 @@ export class HomeComponent implements OnInit {
     });
   }
 }
+
