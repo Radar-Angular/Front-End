@@ -38,10 +38,8 @@ export class ProdutoListaComponent implements OnInit {
     this.buscarProdutos()
   }
 
-  public async addProduto(produto: Produto) {
-    if (confirm("Deseja mesmo adicionar este produto?"))
-      await this.produtoService.postProduto(this.produto)
-    this.buscarProdutos()
+  public async addProduto() {
+    this.router.navigate([`produtos/novo`])
   }
 
 }
