@@ -17,7 +17,7 @@ export class ClienteService {
   ) { }
 
   public async getClientes(): Promise<Cliente[]> {
-    let clientes: Cliente[] = await firstValueFrom(this.http.get<Cliente[]>(`${this.apiUrl}/clientes`))
+    let clientes: Cliente[] = await firstValueFrom(this.http.get<Cliente[]>(`${this.apiUrl}/clientes/all`))
     return clientes
   }
 

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     ProdutoFormularioComponent,
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ProdutosRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ]
 })
 export class ProdutosModule { }
