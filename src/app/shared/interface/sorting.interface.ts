@@ -1,4 +1,4 @@
 export interface SortingInterface {
-    column: string;
-    order: 'asc' | 'desc';
-  }
+  column: string;
+  order: 'asc' | 'desc';
+}
