@@ -20,8 +20,11 @@ export class ClienteListaComponent implements OnInit {
     this.buscarClientes();
   }
 
+  qtdClientes = 0
+
   private async buscarClientes() {
     this.clientes = await this.clienteService.getClientes();
+    this.qtdClientes = this.clientes.length
   }
   
 }
