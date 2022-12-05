@@ -6,6 +6,8 @@ import { ProdutoFormularioComponent } from './produto-formulario/produto-formula
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProdutosRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSortModule,
   ]
 })
 export class ProdutosModule { }
