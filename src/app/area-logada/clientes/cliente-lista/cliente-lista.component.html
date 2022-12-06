@@ -28,7 +28,7 @@
               <th>CPF</th>
               <th>E-mail</th>
               <th>Telefone</th>
-              <th>Endereço</th>
+              <th>Endereço Completo</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +38,7 @@
               <td>{{cliente.cpf | cpf }}</td>
               <td>{{cliente.email}}</td>
               <td>{{cliente.telefone | phone }}</td>
-              <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
+              <td>{{cliente.logradouro}}, {{cliente.numero}} - {{cliente.bairro}} - {{cliente.cidade}}/{{cliente.estado}} </td>
             </tr>
           </tbody>
         </table>
