@@ -6,6 +6,8 @@ import { ProdutoFormularioComponent } from './produto-formulario/produto-formula
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 
@@ -20,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    MatPaginatorModule,
   ]
 })
 export class ProdutosModule { }

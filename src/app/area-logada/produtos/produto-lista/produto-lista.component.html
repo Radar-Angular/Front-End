@@ -32,13 +32,16 @@
                 <td>
 
                   <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-warning" (click)="editarContato(produto.id)">Alterar</button>
+                    <button type="button" class="btn btn-outline-warning"
+                      (click)="editarContato(produto.id)">Alterar</button>
                     <button type="button" class="btn btn-outline-danger" (click)="excluir(produto)">Excluir</button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
+          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+          </mat-paginator>
         </div>
       </div>
     </div>
