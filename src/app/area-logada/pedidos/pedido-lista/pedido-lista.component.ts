@@ -16,6 +16,7 @@ export class PedidoListaComponent implements OnInit {
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
     private router: Router,
+    private activedRoute: ActivatedRoute
   ) { }
 
 
@@ -28,15 +29,13 @@ export class PedidoListaComponent implements OnInit {
   public clientes: Cliente[] = []
   cliente: Cliente = {} as Cliente
   pedido: Pedido = {} as Pedido
+  nomeCliente!: String
 
   private async getPedidos() {
     this.pedidos = await this.pedidoService.getPedidos();
     //  this.getCliente();
-    this.getClientess();
-  }
-
-  public async getClientes() {
-    this.clientes = await this.clienteService.getClientes();
+    // this.getClienteById(this.pedido.id);
+    this.getClienteAtual();
   }
 
   async excluir(pedido: Pedido) {
@@ -45,21 +44,34 @@ export class PedidoListaComponent implements OnInit {
     this.getPedidos()
   }
 
-  async getClienteById(id: number) {
-    this.cliente = await this.clienteService.getClienteById(id);
-    console.log("Sera que vaida bom?")
-    return this.cliente.id
+  // public async getClientes() {
+  //   this.clientes = await this.clienteService.getClientes();
+  // }
+
+  //  getClienteById(id: any) {
+  //   this.cliente = this.clienteService.getClienteById();
+  //   return this.cliente.id
+  // }
+
+
+  // getClientesAtual() {
+  //   this.pedidos.forEach(pedido => {
+  //     this.getClienteById(pedido.idCliente)
+  //     this.clientes.forEach(cliente => {
+  //       if (this.pedido.idCliente == this.cliente.id) {
+  //         this.cliente = cliente
+  //       }
+  //     });
+  //   });
+  // }
+
+  getClienteAtual() {
+    const idCliente = this.activedRoute.snapshot.paramMap.get('id')
+    this.clienteService.getClienteById(idCliente).subscribe({ next: (resp: Cliente) => this.onSucesso(resp) })
   }
 
-  getClientess() {
-    this.pedidos.forEach(pedido => {
-      this.getClienteById(pedido.idCliente)
-      this.clientes.forEach(cliente => {
-        if (this.pedido.idCliente == this.cliente.id) {
-          this.cliente = cliente
-        }
-      });
-    });
+  onSucesso(resp: Cliente) {
+    this.nomeCliente = resp.nome
   }
 
   // getCliente() {
@@ -71,6 +83,7 @@ export class PedidoListaComponent implements OnInit {
   //     }
   //   });
   // }
+  
   public async addPedido() {
     this.router.navigate([`pedidos/novo`])
   }
