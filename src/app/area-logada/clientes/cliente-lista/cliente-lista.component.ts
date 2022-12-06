@@ -24,6 +24,7 @@ export class ClienteListaComponent implements OnInit {
   }
 
   qtdClientes = 0
+  idCliente = 0
 
   private async buscarClientes() {
     this.clientes = await this.clienteService.getClientes();
