@@ -1,8 +1,10 @@
-<section class="page-section container pt-5" id="cliente" style="margin-top: 100px;">
+<section class="page-section container pt-5" id="cliente">
   <div class="container">
     <div class="card shadow pt-5">
       <div class="d-flex justify-content-between p-3">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Clientes</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Clientes</h2> 
+        <br>
+        <button type="button" class="btn-add btn btn-outline-success" (click)="addCliente()">Adicionar</button>
       </div>
       <!-- <div class="row justify-content-center">
         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"> -->
@@ -20,15 +22,16 @@
             <br> -->
       <!-- LISTA CLIENTES -->
       <div class="row text-center justify-content-center">
-        <table class="table table-hover" style="width: 100%;">
+        <table class="table table-hover" style="width: 100%; margin-left: 20px; margin-right: 20px;">
           <thead>
             <tr role="row">
-              <th>ID</th>
+              <th style="margin-left: 0.5em">ID</th>
               <th>Nome</th>
               <th>CPF</th>
               <th>E-mail</th>
               <th>Telefone</th>
-              <th>Endereço</th>
+              <th>Endereço Completo</th>
+              <th scope="col" colspan="2">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +41,8 @@
               <td>{{cliente.cpf | cpf }}</td>
               <td>{{cliente.email}}</td>
               <td>{{cliente.telefone | phone }}</td>
-              <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
+              <td>{{cliente.logradouro}}, {{cliente.numero}} - {{cliente.bairro}} - {{cliente.cidade}}/{{cliente.estado}} </td>
+              <td><button class="btn btn-danger" (click)="excluir(cliente)">Excluir</button></td>
             </tr>
           </tbody>
         </table>

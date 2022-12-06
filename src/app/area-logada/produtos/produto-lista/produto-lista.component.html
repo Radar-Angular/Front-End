@@ -1,4 +1,4 @@
-<section class="page-section" id="produto" style="margin-top: 100px;">
+<section class="page-section container pt-5" id="produto">
   <div class="container">
     <div class="card shadow pt-5">
       <div class="d-flex justify-content-between p-3">
@@ -14,7 +14,7 @@
           <table *ngIf="produtos.length > 0" class="table table-hover justify-content-center text-center">
             <thead>
               <tr>
-                <th scope="col">Id</th>
+                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor</th>
@@ -40,12 +40,10 @@
               </tr>
             </tbody>
           </table>
-          <mat-paginator [length]="produtos.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
-          </mat-paginator>
+          <!-- <mat-paginator [length]="produtos.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+          </mat-paginator> -->
         </div>
       </div>
     </div>
   </div>
 </section>
-<br>
-<br><br><br><br>

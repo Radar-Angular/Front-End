@@ -32,7 +32,7 @@ export class PedidoListaComponent implements OnInit {
   private async getPedidos() {
     this.pedidos = await this.pedidoService.getPedidos();
     //  this.getCliente();
-    this.getCliente();
+    this.getClientess();
   }
 
   public async getClientes() {
@@ -48,17 +48,7 @@ export class PedidoListaComponent implements OnInit {
   async getClienteById(id: number) {
     this.cliente = await this.clienteService.getClienteById(id);
     console.log("Sera que vaida bom?")
-    return this.cliente
-  }
-
-  getCliente() {
-    this.pedidos.forEach(pedido => {
-      if (this.pedido.idCliente == this.cliente.id) {
-        this.getClienteById(pedido.idCliente)
-        console.log("caiu aq?")
-        console.log(this.cliente)
-      }
-    });
+    return this.cliente.id
   }
 
   getClientess() {
@@ -71,6 +61,16 @@ export class PedidoListaComponent implements OnInit {
       });
     });
   }
+
+  // getCliente() {
+  //   this.pedidos.forEach(pedido => {
+  //     if (this.pedido.idCliente == this.cliente.id) {
+  //       this.getClienteById(pedido.idCliente)
+  //       console.log("caiu aq?")
+  //       console.log(this.cliente)
+  //     }
+  //   });
+  // }
   public async addPedido() {
     this.router.navigate([`pedidos/novo`])
   }
