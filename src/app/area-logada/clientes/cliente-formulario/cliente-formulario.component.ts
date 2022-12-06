@@ -30,9 +30,9 @@ export class ClienteFormularioComponent implements OnInit {
     }
   }
 
-  private async atualizarCliente(id: Number) {
+  private async atualizarCliente(id: number) {
     this.titulo = "Alterando Cliente"
-    this.cliente = await this.clienteService.getClienteById(this.cliente.id)
+    this.cliente = await this.clienteService.getClienteById(id)
   }
 
   salvar() {
@@ -44,5 +44,7 @@ export class ClienteFormularioComponent implements OnInit {
     }
     this.router.navigate(['clientes'])
   }
+
+  
 
 }

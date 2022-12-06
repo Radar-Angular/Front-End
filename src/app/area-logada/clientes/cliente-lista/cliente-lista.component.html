@@ -42,7 +42,12 @@
               <td>{{cliente.email}}</td>
               <td>{{cliente.telefone | phone }}</td>
               <td>{{cliente.logradouro}}, {{cliente.numero}} - {{cliente.bairro}} - {{cliente.cidade}}/{{cliente.estado}} </td>
-              <td><button class="btn btn-danger" (click)="excluir(cliente)">Excluir</button></td>
+              <td><div class="btn-group" role="group" aria-label="Basic outlined example">
+
+                <button type="button" class="btn btn-outline-warning"(click)="editarCliente(cliente.id)">Alterar</button>
+                <button type="button" class="btn btn-outline-danger" (click)="excluir(cliente)">Excluir</button>
+
+              </div></td>
             </tr>
           </tbody>
         </table>

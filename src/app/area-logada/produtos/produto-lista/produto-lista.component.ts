@@ -46,7 +46,7 @@ export class ProdutoListaComponent implements OnInit {
     console.log("aqui esta")
   }
 
-  editarContato(idProduto: number) {
+  editarProduto(idProduto: number) {
     this.router.navigate([`produtos/${idProduto}/editar`])
   }
 
