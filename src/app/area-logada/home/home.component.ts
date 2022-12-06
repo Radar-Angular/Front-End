@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
     this.calculavalores();
     this.getPedidos();
     this.getProdutos();
+    this.getTotalVendasPorMes();
+    this.getPedidosMeses();
   }
 
   pedido: Pedido[] = []
@@ -43,8 +45,8 @@ export class HomeComponent implements OnInit {
     this.pedido = await this.pedidoService.getPedidos()
     this.pedido.forEach(item => {
       this.valorTotal = this.valorTotal + item.valorTotal
-      console.log(this.valorTotal)
     });
+    return this.valorTotal
   }
 
   // TABELA PEDIDOS
@@ -60,6 +62,63 @@ export class HomeComponent implements OnInit {
   private async getProdutos() {
     this.produtos = await this.produtoService.getProdutos();
   }
+
+
+
+  public async getDiasVendas() {
+    const dias: number[] = []
+    this.pedidos = await this.pedidoService.getPedidos();
+    this.pedidos.forEach(pedido => dias.push(new Date(pedido.data).getDate()));
+    console.log(dias);
+    return dias
+  }
+
+
+ async getPedidosMeses() {
+    const meses: number[] = []
+    let valorMes: number[] =[]
+    let valor: number = 0
+    this.produtos = await this.produtoService.getProdutos();
+    this.pedidos.forEach(pedido => meses.push(new Date(pedido.data).getMonth()),
+    this.pedidos.forEach(item => {
+    valor = valor + item.valorTotal
+    if(!meses)
+    valorMes.push(valor)
+    }))
+    console.log(this.pedidos)
+    valorMes.push(valor)
+    console.log(valor)
+    console.log(valorMes)
+    return meses
+}
+
+
+
+
+
+async getTotalVendasPorMes() {
+    let venda = 0
+    const vendas: Array<Array<number>> = [[],[],[], [], [], [], [], [], [], [], [], []]
+    this.pedidos = await this.pedidoService.getPedidos()
+    this.pedidos.forEach((pedido, index, array) => {
+        for(let i = 0; i < vendas.length; i++) {
+            if(new Date(pedido.data).getMonth() == i){
+              this.pedidos.forEach(valor => {
+               venda = venda + valor.valorTotal 
+              });      
+            }
+            vendas[i].push(venda)
+          }
+
+          // console.log(vendas);
+    })
+   return vendas
+}
+
+
+
+
+
 
   RenderChart() {
     const myChart = new Chart("grafVendas", {
