@@ -45,7 +45,7 @@ export class ProdutoService {
         firstValueFrom(this.http.delete(`${this.apiUrl}/produtos/${id}`))
       }
 
-      getProdutosLista(
+      public getProdutosLista(
         sorting: SortingInterface,
         searchValue: string
       ): Observable<Produto[]> {

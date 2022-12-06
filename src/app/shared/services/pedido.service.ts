@@ -18,9 +18,7 @@ export class PedidoService {
       let pedidos:Pedido[] = await firstValueFrom(this.http.get<Pedido[]>(`${this.apiUrl}/pedidos/all`))
       return pedidos
     }
-    
 
-   
     public async getPedidoById(id:number) : Promise<Pedido>{
       return await firstValueFrom(this.http.get<Pedido>(`${this.apiUrl}/pedidos/${id}`))
     }
