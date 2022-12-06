@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
+import { Cliente } from 'src/app/shared/models/cliente';
+import { Pedido } from 'src/app/shared/models/pedido';
+import { Produto } from 'src/app/shared/models/produto';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
+import { PedidoService } from 'src/app/shared/services/pedido.service';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
 Chart.register(...registerables);
 
 @Component({
@@ -9,10 +15,47 @@ Chart.register(...registerables);
 })
 export class FluxoDeCaixaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private pedidoService: PedidoService,
+    private clienteService: ClienteService,
+    private produtoService: ProdutoService,
+  ) { }
 
   ngOnInit(): void {
     this.RenderChart();
+    this.calculavalores();
+    this.getPedidos();
+    this.getProdutos();
+  }
+
+  pedido: Pedido[] = []
+  pedidos: Pedido[] = []
+  clientes: Cliente[] = []
+  cliente: Cliente = {} as Cliente
+  produto: Produto[] = []
+  produtos: Produto[] = []
+
+  valorTotal: number = 0
+  async calculavalores() {
+    this.pedido = await this.pedidoService.getPedidos()
+    this.pedido.forEach(item => {
+      this.valorTotal = this.valorTotal + item.valorTotal
+      console.log(this.valorTotal)
+    });
+  }
+  
+  // TABELA PEDIDOS
+  private async getPedidos() {
+    this.pedidos = await this.pedidoService.getPedidos();
+  }
+
+  public async getClientes() {
+    this.clientes = await this.clienteService.getClientes();
+  }
+
+  // TABELA ESTOQUE
+  private async getProdutos() {
+    this.produtos = await this.produtoService.getProdutos();
   }
 
 
@@ -41,7 +84,6 @@ export class FluxoDeCaixaComponent implements OnInit {
         }
       }
     });
-
 
 
     const myChart2 = new Chart("grafPedidos", {

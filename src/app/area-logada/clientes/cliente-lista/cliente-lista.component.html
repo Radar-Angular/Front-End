@@ -27,6 +27,7 @@
                                     <th>E-mail</th>
                                     <th>Telefone</th>
                                     <th>Endereço</th>
+                                    <button type="button" class="btn-add btn btn-xs btn-outline-success" (click)="addCliente()">Adicionar</button>
                                 </tr>
                             </thead>
 
@@ -38,6 +39,15 @@
                                     <td>{{cliente.email}}</td>
                                     <td>{{cliente.telefone}}</td>
                                     <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
+                                    <td>
+                                        <ul style="list-style: none;">
+                                            <li class="btn-li"><button class="btn btn-outline-warning"
+                                                    (click)="editarCliente(cliente.id)">Alterar</button></li>
+                                            <li class="btn-li"><button class="btn btn-outline-danger"
+                                                    (click)="excluir(cliente)">Excluir</button>
+                                            </li>
+                                        </ul>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
