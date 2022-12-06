@@ -74,64 +74,64 @@ export class FluxoDeCaixaComponent implements OnInit {
           borderColor: [
             '#FF8400'
           ]
-        },{
+        }, {
           label: 'Metas (em R$)',
           data: [24500.32, 24530.12, 26941.71, 27435.23, 27912.23, 28909.12, 27812.55, 27986.12, 28013.51, 27812.13, 28512.51, 32664.05],
           borderWidth: 2,
           backgroundColor: [
             '#1a1918'
-        ],
+          ],
           borderColor: [
             '#1a1918'
-        ]
-      }],
-    },
+          ]
+        }],
+      },
       options: {
-      scales: {
-        y: {
-          beginAtZero: true
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
-    }
     });
 
 
-  const myChart2 = new Chart("grafPedidos", {
-    type: 'bar',
-    data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-      datasets: [{
-        label: 'Pedidos (quantidade)',
-        data: [564, 621, 594, 702, 754, 657, 782, 671, 764, 812, 876, 360],
-        borderWidth: 1,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)'
-        ],
-      }],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+    const myChart2 = new Chart("grafPedidos", {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{
+          label: 'Pedidos (quantidade)',
+          data: [564, 621, 594, 702, 754, 657, 782, 671, 764, 812, 876, 360],
+          borderWidth: 1,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+          ],
+        }],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
         }
       }
-    }
-  });
-}
+    });
+  }
 }
 

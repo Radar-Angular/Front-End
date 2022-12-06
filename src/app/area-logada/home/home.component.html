@@ -1,47 +1,49 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<br><br>
+<h2 class="text-center display-4 font-italic" style="color:'#ff8400' ">Bem vindo ao Dashboard - RadarFarma</h2>
+<br>
 <div class="container py-4">
     <!-- Fileira Superior - Cards status -->
     <!-- ATUALIZAR OS INPUTS COM API's -->
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-            <div class="card shadow">
+            <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div
                         class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">monetization_on</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Vendas - (ADD MÊS ATUAL)</p>
+                        <p class="text-sm mb-0 text-capitalize">Vendas - Dezembro/22</p>
                         <h4 class="mb-0">R$ {{valorTotal | number: '.2-2'}}</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span> último mês</p>
+                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">23% </span> da meta</p>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-            <div class="card shadow">
+            <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div
                         class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">shopping_cart</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Pedidos - (COLOCAR MÊS)</p>
-                        <h4 class="mb-0">2,300</h4>
+                        <p class="text-sm mb-0 text-capitalize">Pedidos - Dezembro/22</p>
+                        <h4 class="mb-0">360</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span> último mês</p>
+                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span> vs. último mês</p>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-            <div class="card shadow">
+            <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div
                         class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
@@ -49,30 +51,30 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Clientes - Total</p>
-                        <h4 class="mb-0">{{qtdClientes}}</h4>
+                        <h4 class="mb-0">1,842</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">+2%</span> no ano</p>
+                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+21%</span> vs. 2021</p>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6">
-            <div class="card shadow">
+            <div class="card">
                 <div class="card-header p-3 pt-2">
                     <div
                         class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">monetization_on</i>
                     </div>
                     <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Faturamento - 2022</p>
-                        <h4 class="mb-0">R$ 103.430</h4>
+                        <p class="text-sm mb-0 text-capitalize">Faturamento Total - 2022</p>
+                        <h4 class="mb-0">R$ 103,437.51</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
                 <div class="card-footer p-3">
-                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>vs. 2021</p>
+                    <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+14% </span>vs. 2021</p>
                 </div>
             </div>
         </div>
@@ -80,12 +82,12 @@
 
 
     <!-- GRAFICO  -->
-    <div class="row mt-2">
-        <div class="col-lg-6 card shadow" style="margin: 0 8px 0 12px; width: 640px;">
+    <div class="row">
+        <div class="col-lg-6">
             <h2>Histórico de Vendas</h2>
             <canvas id="grafVendas"></canvas>
         </div>
-        <div class="col-lg-6 card shadow" style="margin: 0 8px 0 12px; width: 640px;">
+        <div class="col-lg-6">
             <h2>Histórico de Pedidos</h2>
             <canvas id="grafPedidos"></canvas>
         </div>
