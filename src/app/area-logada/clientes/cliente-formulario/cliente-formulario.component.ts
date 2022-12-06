@@ -24,27 +24,10 @@ export class ClienteFormularioComponent implements OnInit {
   clienteForm!: FormGroup;
 
   ngOnInit(): void {
-    this.IniciarFormulario();
     let id: number = this.route.snapshot.params['id']
     if (id) {
       this.atualizarCliente(id)
     }
-  }
-
-  IniciarFormulario() {
-    this.clienteForm = this.formsBuilder.group({
-      nome: ['', Validators.required],
-      telefone: ['', Validators.required],
-      email: ['', Validators.required],
-      cpf: ['', Validators.required],
-      cep: ['', Validators.required],
-      logradouro: ['', Validators.required],
-      numero: ['', Validators.required],
-      bairro: ['', Validators.required],
-      cidade: ['', Validators.required],
-      estado: ['', Validators.required],
-      complemento: ['', Validators.required],
-    })
   }
 
   private async atualizarCliente(id: Number) {
