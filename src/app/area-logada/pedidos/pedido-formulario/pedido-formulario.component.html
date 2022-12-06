@@ -1,7 +1,5 @@
 
-
-<div class="container pt-5">
-
+<div class="container">
     <div>
         <form id="pedidoForm" class="form-group">
             <div>
@@ -10,25 +8,21 @@
                 <input type="number" class="form-control" id="pedidoId" placeholder="Pedido Id" name="pedidoId" [(ngModel)]="pedidoProduto.pedidoId">
             </div>
             <div class="form-group">
-                <label for="descricao">descricao</label>
+                <label for="descricao">Descricao</label>
                 <input type="number" class="form-control" id="produtoId"  placeholder="produtoId" name="produtoId" [(ngModel)]="pedidoProduto.produtoId" >
             </div>
             <div class="form-group">
-                <label for="descricao">valor</label>
+                <label for="descricao">Valor</label>
                 <input type="number" class="form-control" id="valor"  placeholder="valor" name="valor" [(ngModel)]="pedidoProduto.valor" >
             </div>
             <div class="form-group">
-                <label for="descricao">quantidade</label>
+                <label for="descricao">Quantidade</label>
                 <input type="number" class="form-control" id="quantidade"  placeholder="quantidade" name="quantidade" [(ngModel)]="pedidoProduto.quantidade" >
             </div>
-            
-
-            <button class="p-2 align-center" (click)="salvarPedidoProduto()">salvar
-            </button>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-danger" routerLink="/pedidos">Cancelar</button>
+              <button type="button" class="btn btn-outline-success" (click)="salvarPedidoProduto()">Salvar</button>
+            </div>
         </form>
-
     </div>
-
-
-
 </div>
