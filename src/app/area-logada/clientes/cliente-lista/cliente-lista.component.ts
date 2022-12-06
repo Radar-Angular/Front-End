@@ -39,5 +39,9 @@ export class ClienteListaComponent implements OnInit {
       await this.clienteService.deleteClienteById(cliente.id)
     this.buscarClientes()
   }
+
+  public async addCliente() {
+    this.router.navigate([`clientes/novo`])
+  }
   
 }
