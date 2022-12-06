@@ -1,4 +1,4 @@
-<section class="container page-section" id="contact" style="margin-top: 100px;">
+<section class="container page-section pt-5" id="contact" style="margin-top: 100px;">
   <div class="">
     <!-- Contact Section Heading-->
     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Pedidos</h2>
@@ -20,14 +20,12 @@
             </tr>
           </thead>
           <tbody>
-
-
             <tr *ngFor="let pedido of pedidos">
               <td>{{pedido.id}}</td>
               <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
               <td>R$ {{pedido.valorTotal}}</td>
               <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
-              <td><a class="btn btn-warning" (click)="alterar(pedido.id)">Alterar</a></td>
+              <td><a class="btn btn-outline-warning" (click)="alterar(pedido.id)">Alterar</a></td>
               <!-- <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td> -->
             </tr>
           </tbody>
