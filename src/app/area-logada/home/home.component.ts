@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   produto: Produto[] = []
   produtos: Produto[] = []
 
-  qtdClientes:number = 0
+  qtdClientes: number = 0
   valorTotal: number = 0
   async calculavalores() {
     this.pedido = await this.pedidoService.getPedidos()
@@ -50,10 +50,10 @@ export class HomeComponent implements OnInit {
     return this.valorTotal
   }
 
-  async qtsClientes(){
+  async qtsClientes() {
     this.clientes = await this.clienteService.getClientes()
     this.qtdClientes = this.clientes.length
-   return this.qtdClientes 
+    return this.qtdClientes
   }
 
 
@@ -83,46 +83,46 @@ export class HomeComponent implements OnInit {
   }
 
 
- async getPedidosMeses() {
+  async getPedidosMeses() {
     const meses: number[] = []
-    let valorMes: number[] =[]
+    let valorMes: number[] = []
     let valor: number = 0
     this.produtos = await this.produtoService.getProdutos();
     this.pedidos.forEach(pedido => meses.push(new Date(pedido.data).getMonth()),
-    this.pedidos.forEach(item => {
-    valor = valor + item.valorTotal
-    if(!meses)
-    valorMes.push(valor)
-    }))
+      this.pedidos.forEach(item => {
+        valor = valor + item.valorTotal
+        if (!meses)
+          valorMes.push(valor)
+      }))
     console.log(this.pedidos)
     valorMes.push(valor)
     console.log(valor)
     console.log(valorMes)
     return meses
-}
+  }
 
 
 
 
 
-async getTotalVendasPorMes() {
+  async getTotalVendasPorMes() {
     let venda = 0
-    const vendas: Array<Array<number>> = [[],[],[], [], [], [], [], [], [], [], [], []]
+    const vendas: Array<Array<number>> = [[], [], [], [], [], [], [], [], [], [], [], []]
     this.pedidos = await this.pedidoService.getPedidos()
     this.pedidos.forEach((pedido, index, array) => {
-        for(let i = 0; i < vendas.length; i++) {
-            if(new Date(pedido.data).getMonth() == i){
-              this.pedidos.forEach(valor => {
-               venda = venda + valor.valorTotal 
-              });      
-            }
-            vendas[i].push(venda)
-          }
+      for (let i = 0; i < vendas.length; i++) {
+        if (new Date(pedido.data).getMonth() == i) {
+          this.pedidos.forEach(valor => {
+            venda = venda + valor.valorTotal
+          });
+        }
+        vendas[i].push(venda)
+      }
 
-          // console.log(vendas);
+      // console.log(vendas);
     })
-   return vendas
-}
+    return vendas
+  }
 
 
 
@@ -135,14 +135,24 @@ async getTotalVendasPorMes() {
       data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
-          label: 'Vendas',
-          data: [12, 19, 3, 5, 2, 3, 15, 20, 12, 13, 18, 19],
+          label: 'Vendas (em R$)',
+          data: [23695.32, 24941.12, 23641.71, 25691.23, 24105.23, 27199.12, 24072.55, 29501.12, 28356.51, 28151.13, 29512.51, 7512.73],
           borderWidth: 2,
           backgroundColor: [
             '#FF8400'
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)'
+            '#FF8400'
+          ]
+        }, {
+          label: 'Metas (em R$)',
+          data: [24500.32, 24530.12, 26941.71, 27435.23, 27912.23, 28909.12, 27812.55, 27986.12, 28013.51, 27812.13, 28512.51, 32664.05],
+          borderWidth: 2,
+          backgroundColor: [
+            '#1a1918'
+          ],
+          borderColor: [
+            '#1a1918'
           ]
         }],
       },
