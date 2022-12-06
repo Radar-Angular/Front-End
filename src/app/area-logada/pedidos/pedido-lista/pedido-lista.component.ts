@@ -15,7 +15,7 @@ export class PedidoListaComponent implements OnInit {
   constructor(
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
-    private route: Router
+    private route: Router,
     ) { }
 
     
@@ -37,11 +37,11 @@ export class PedidoListaComponent implements OnInit {
     this.clientes = await this.clienteService.getClientes();
   }
 
-
-
-alterar(idContato: Number){
-  this.route.navigate([`pedidos/${idContato}/editar`])
-}
+  async excluir(pedido: Pedido) {
+    if (confirm("Deseja mesmo excluir esse produto?"))
+      await this.pedidoService.deletePedidoById(pedido.id)
+    this.getPedidos()
+  }
 
 
 

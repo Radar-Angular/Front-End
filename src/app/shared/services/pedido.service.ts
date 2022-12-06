@@ -37,7 +37,7 @@ export class PedidoService {
       return PedidoRest
     }
 
-    public deleteClienteById(id:number){
+    public deletePedidoById(id:number){
       firstValueFrom(this.http.delete(`${this.apiUrl}/pedidos/${id}`))
     }
 
