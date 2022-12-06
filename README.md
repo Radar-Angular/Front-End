@@ -29,7 +29,7 @@ Projeto desenvolvido como parte da formação "Código do Futuro - Farmarcas".
 <br/>
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)(https://grupo7-radar.atlassian.net/jira/software/projects/G7/boards/1
+![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
 ![Swagger](https://img.shields.io/badge/swagger-6DA55F.svg?style=for-the-badge&logo=swagger&logoColor=green)
 
 
