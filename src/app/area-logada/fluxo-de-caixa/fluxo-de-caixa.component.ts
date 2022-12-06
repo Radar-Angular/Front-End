@@ -65,8 +65,8 @@ export class FluxoDeCaixaComponent implements OnInit {
       data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
-          label: 'Vendas',
-          data: [12, 19, 3, 5, 2, 3, 15, 20, 12, 13, 18, 19],
+          label: 'Vendas (em R$)',
+          data: [5572.32, 5987.12, 6941.71, 7435.23, 7912.23, 8909.12, 7812.55, 7986.12, 8013.51, 7812.13, 8512.51, 7512.73],
           borderWidth: 2,
           backgroundColor: [
             '#FF8400'
@@ -91,8 +91,8 @@ export class FluxoDeCaixaComponent implements OnInit {
       data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
-          label: 'Pedidos',
-          data: [12, 19, 3, 5, 2, 3, 15, 20, 12, 13, 18, 19],
+          label: 'Pedidos (quantidade)',
+          data: [564,621,594,702,754,657,782,671,764,812,876,360],
           borderWidth: 1,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
