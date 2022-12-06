@@ -15,25 +15,27 @@ export class PedidoListaComponent implements OnInit {
   constructor(
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
-    private route: Router,
-    ) { }
+    private router: Router,
+  ) { }
 
-    
+
 
   ngOnInit(): void {
     this.getPedidos()
   }
 
-  public pedidos:Pedido[] = []
-  public clientes:Cliente[]= []
-  cliente:Cliente = {} as Cliente
-  idCliente: Number = 0
+  public pedidos: Pedido[] = []
+  public clientes: Cliente[] = []
+  cliente: Cliente = {} as Cliente
+  pedido: Pedido = {} as Pedido
 
- private async getPedidos(){
-   this.pedidos  =  await this.pedidoService.getPedidos();
+  private async getPedidos() {
+    this.pedidos = await this.pedidoService.getPedidos();
+    //  this.getCliente();
+    this.getCliente();
   }
 
-  public async getClientes(){
+  public async getClientes() {
     this.clientes = await this.clienteService.getClientes();
   }
 
@@ -43,7 +45,33 @@ export class PedidoListaComponent implements OnInit {
     this.getPedidos()
   }
 
+  async getClienteById(id: number) {
+    this.cliente = await this.clienteService.getClienteById(id);
+    console.log("Sera que vaida bom?")
+    return this.cliente
+  }
 
+  getCliente() {
+    this.pedidos.forEach(pedido => {
+      if (this.pedido.idCliente == this.cliente.id) {
+        this.getClienteById(pedido.idCliente)
+        console.log("caiu aq?")
+        console.log(this.cliente)
+      }
+    });
+  }
 
-
+  getClientess() {
+    this.pedidos.forEach(pedido => {
+      this.getClienteById(pedido.idCliente)
+      this.clientes.forEach(cliente => {
+        if (this.pedido.idCliente == this.cliente.id) {
+          this.cliente = cliente
+        }
+      });
+    });
+  }
+  public async addPedido() {
+    this.router.navigate([`pedidos/novo`])
+  }
 }

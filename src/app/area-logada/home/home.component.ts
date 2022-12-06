@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
     this.getProdutos();
     this.getTotalVendasPorMes();
     this.getPedidosMeses();
+    this.qtsClientes();
   }
 
   pedido: Pedido[] = []
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
   produto: Produto[] = []
   produtos: Produto[] = []
 
-
+  qtdClientes:number = 0
   valorTotal: number = 0
   async calculavalores() {
     this.pedido = await this.pedidoService.getPedidos()
@@ -48,6 +49,14 @@ export class HomeComponent implements OnInit {
     });
     return this.valorTotal
   }
+
+  async qtsClientes(){
+    this.clientes = await this.clienteService.getClientes()
+    this.qtdClientes = this.clientes.length
+   return this.qtdClientes 
+  }
+
+
 
   // TABELA PEDIDOS
   private async getPedidos() {

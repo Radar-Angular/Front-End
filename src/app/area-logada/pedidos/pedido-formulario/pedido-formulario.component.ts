@@ -22,7 +22,7 @@ export class PedidoFormularioComponent implements OnInit {
     private pedidoProdutoService: PedidoProdutoService
   ) { }
 
-  titulo: string = "Novo Produto"
+  titulo: string = "Novo Pedido"
 
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class PedidoFormularioComponent implements OnInit {
 
 
   async atualizarPedido(id:number){
-    this.titulo = "Alterando Produto"
+    this.titulo = "Alterando Pedido"
     this.pedidoProduto = await this.pedidoProdutoService.getPedidoById(id)
     console.log(this.pedidoProduto)
   }
@@ -46,7 +46,7 @@ export class PedidoFormularioComponent implements OnInit {
   salvarPedidoProduto(){
     this.pedidoProdutoService.postPedidoProduto(this.pedidoProduto)
     this.pedido.valorTotal = this.pedidoProduto.valor
-    this.pedido.idCliente = 3
+    this.pedido.idCliente = 7
     this.salvarPedido();
   }
 

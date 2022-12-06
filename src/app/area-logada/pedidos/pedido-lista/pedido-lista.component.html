@@ -1,36 +1,15 @@
-<section class="container page-section pt-5" id="pedido" style="margin-top: 100px;">
-  <div class="container">
-    <div class="card shadow pt-5">
-      <div class="d-flex justify-content-between p-3">
-        <h2 class="page-section-heading text-uppercase text-secondary mb-0">Lista de Pedidos</h2>
-        <button type="button" class="btn-add btn btn-outline-success">Adicionar</button>
-      </div>
-      <br>
-      <div class="row justify-content-center">
-        <div>
-          <div *ngIf="pedidos.length == 0" class="alert alert-primary" role="alert">
-            Não existem pedidos cadastrados
-          </div>
-          <table *ngIf="pedidos.length > 0" class="table table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Data</th>
-                <th scope="col" colspan="2">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let pedido of pedidos">
-                <td>{{pedido.id}}</td>
-                <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
-                <td>R$ {{pedido.valorTotal}}</td>
-                <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
-                <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
-              </tr>
-            </tbody>
-          </table>
+<section class="container page-section pt-5" id="contact" style="margin-top: 100px;">
+  <div class="">
+    <!-- Contact Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Pedidos</h2>
+
+    <br>
+    <button type="button" class="btn-add btn btn-outline-success" (click)="addPedido()">Adicionar</button>
+    <!-- Contact Section Form-->
+    <div class="row justify-content-center">
+      <div>
+        <div *ngIf="pedidos.length == 0" class="alert alert-primary" role="alert">
+          Não existe pedidos cadastrados
         </div>
         <table *ngIf="pedidos.length > 0" class="table">
           <thead>
@@ -42,14 +21,14 @@
               <th scope="col" colspan="2">Ações</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos">
-              <td>{{pedido.id}}</td>
-              <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
-              <td>R$ {{pedido.valorTotal}}</td>
-              <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
-              <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
-            </tr>
+          <tbody >
+              <tr *ngFor="let pedido of pedidos">
+                <td>{{pedido.id}}</td>
+                <td *ngIf="cliente.id == pedido.idCliente">{{cliente.nome}}</td>
+                <td>R$ {{pedido.valorTotal}}</td>
+                <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
+                <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
+              </tr>
           </tbody>
         </table>
       </div>
