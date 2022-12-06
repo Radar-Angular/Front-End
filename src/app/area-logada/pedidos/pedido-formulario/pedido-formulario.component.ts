@@ -22,8 +22,21 @@ export class PedidoFormularioComponent implements OnInit {
     private pedidoProdutoService: PedidoProdutoService
   ) { }
 
+  titulo: string = "Novo Produto"
+
 
   ngOnInit(): void {
+    let id: number = this.route.snapshot.params['id']
+    if (id) {
+      this.atualizarPedido(id)
+    }
+  }
+
+
+  async atualizarPedido(id:number){
+    this.titulo = "Alterando Produto"
+    this.pedidoProduto = await this.pedidoProdutoService.getPedidoById(id)
+    console.log(this.pedidoProduto)
   }
 
   public pedido: Pedido = {} as Pedido
@@ -37,9 +50,9 @@ export class PedidoFormularioComponent implements OnInit {
     this.salvarPedido();
   }
 
+  
   salvarPedido(){
     this.pedidoService.postPedido(this.pedido)
     this.router.navigate(['pedidos'])
   }
-
 }

@@ -1,99 +1,85 @@
-<section class="page-section" id="contact" style="margin-top: 50px;">
-    <div class="container">
+<section class="page-section container pt-5" id="cliente" style="margin-top: 100px;">
+  <div class="container">
+    <div class="card shadow pt-5">
+      <div class="d-flex justify-content-between p-3">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Clientes</h2>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-
-                <!-- Campo de Pesquisar (ATUALIZAR COM FUNÇÃO BUSCAR QUE FUNCIONE) -->
-                <div class="row">
-                    <div class="col-sm-12 col-md-10">
-                        <div id="dataTable_filter" class="dataTables_filter"><label>Pesquisar:<input type="search"
-                                    class="form-control form-control-sm" placeholder="Digite o ID"
-                                    aria-controls="dataTable"></label></div>
+      </div>
+      <!-- <div class="row justify-content-center">
+        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"> -->
+      <!-- Campo de Pesquisar (ATUALIZAR COM FUNÇÃO BUSCAR QUE FUNCIONE)
+            <div class="row">
+                <div class="col-sm-12 col-md-10">
+                    <div id="dataTable_filter" class="dataTables_filter">
+                      <label>
+                        Pesquisar:
+                        <input type="search" class="form-control form-control-sm" placeholder="Digite o ID" aria-controls="dataTable">
+                      </label>
                     </div>
                 </div>
-                <br>
-                <!-- LISTA CLIENTES -->
-                <div class="row text-center justify-content-center">
-                    <div class="col-sm-12 col-xl-7">
-                        <table class="table table-bordered table-hover" style="width: 100%;">
-                            <thead>
-                                <tr role="row">
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>CPF</th>
-                                    <th>E-mail</th>
-                                    <th>Telefone</th>
-                                    <th>Endereço</th>
-                                    <button type="button" class="btn-add btn btn-xs btn-outline-success" (click)="addCliente()">Adicionar</button>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr *ngFor="let cliente of clientes">
-                                    <td>{{cliente.id}}</td>
-                                    <td>{{cliente.nome}}</td>
-                                    <td>{{cliente.cpf}}</td>
-                                    <td>{{cliente.email}}</td>
-                                    <td>{{cliente.telefone}}</td>
-                                    <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
-                                    <td>
-                                        <ul style="list-style: none;">
-                                            <li class="btn-li"><button class="btn btn-outline-warning"
-                                                    (click)="editarCliente(cliente.id)">Alterar</button></li>
-                                            <li class="btn-li"><button class="btn btn-outline-danger"
-                                                    (click)="excluir(cliente)">Excluir</button>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- MOSTRADOR DE CONTAGEM DE CLIENTES EXIBIDOS vs TOTAL -->
-                <!-- ARRUMAR POSICAO NA PAGINA -->
-                <div class="row justify-content-md-center">
-                    <div class="col-sm-3" style="float:none; margin:auto;">
-                        Exibindo 1 a (atual) de {{qtdClientes}} clientes</div>
-                </div>
-
-                <div class="row justify-content-md-center">
-                    <!-- Botões mudar página (Anterior + números + Próxima) -->
-                    <!-- ATUALIZAR PARA CONTAGEM REAL -->
-                    <div class="col-sm-3" style="float:none; margin:auto;">
-                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
-                                        href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-                                        class="page-link">Anterior</a></li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
-                                        aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                        class="page-link">Próxima</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-
             </div>
-        </div>
-    </div>
+            <br> -->
+      <!-- LISTA CLIENTES -->
+      <div class="row text-center justify-content-center">
+        <table class="table table-hover" style="width: 100%;">
+          <thead>
+            <tr role="row">
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Endereço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes">
+              <td>{{cliente.id}}</td>
+              <td>{{cliente.nome}}</td>
+              <td>{{cliente.cpf}}</td>
+              <td>{{cliente.email}}</td>
+              <td>{{cliente.telefone}}</td>
+              <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
+      <!-- MOSTRADOR DE CONTAGEM DE CLIENTES EXIBIDOS vs TOTAL -->
+      <!-- ARRUMAR POSICAO NA PAGINA -->
+      <!-- <div class="row justify-content-md-center">
+                <div class="col-sm-3" style="float:none; margin:auto;">
+                    Exibindo 1 a (atual) de {{qtdClientes}} clientes</div>
+            </div> -->
+
+      <!-- <div class="row justify-content-md-center"> -->
+      <!-- Botões mudar página (Anterior + números + Próxima) -->
+      <!-- ATUALIZAR PARA CONTAGEM REAL -->
+      <!-- <div class="col-sm-3" style="float:none; margin:auto;">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
+                                    href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                    class="page-link">Anterior</a></li>
+                            <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                            <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
+                                    aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                    class="page-link">Próxima</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+      <br>
+    </div>
+  </div>
 </section>

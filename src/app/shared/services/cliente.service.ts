@@ -22,7 +22,7 @@ export class ClienteService {
   }
 
   public async getClienteById(id: Number): Promise<Cliente> {
-    return await firstValueFrom(this.http.get<Cliente>(`${this.apiUrl}/cliente/${id}`))
+    return await firstValueFrom(this.http.get<Cliente>(`${this.apiUrl}/clientes/${id}`))
   }
 
   public async getClienteByNome(nome: string): Promise<Cliente> {
@@ -30,12 +30,12 @@ export class ClienteService {
   }
 
   public async postCliente(cliente: Cliente): Promise<Cliente> {
-    let clienteRest: Cliente = await firstValueFrom(this.http.post<Cliente>(`${this.apiUrl}cliente`, cliente))
+    let clienteRest: Cliente = await firstValueFrom(this.http.post<Cliente>(`${this.apiUrl}clientes`, cliente))
     return clienteRest
   }
 
   public async putCliente(cliente: Cliente): Promise<Cliente> {
-    let clienteRest: Cliente = await firstValueFrom(this.http.post<Cliente>(`${this.apiUrl}cliente/${cliente.id}`, cliente))
+    let clienteRest: Cliente = await firstValueFrom(this.http.put<Cliente>(`${this.apiUrl}clientes`, cliente))
     return clienteRest
   }
 

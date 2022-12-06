@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
+import { AngularPaginatorModule } from 'angular-paginator';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     NgbModule,
     BrowserAnimationsModule,
     NgChartsModule,
+    AngularPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

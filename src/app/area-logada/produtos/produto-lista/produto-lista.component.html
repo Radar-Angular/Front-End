@@ -1,14 +1,17 @@
-<section class="page-section" id="contact" style="margin-top: 100px;">
+<section class="page-section" id="produto" style="margin-top: 100px;">
   <div class="container">
-    <div class="card shadow">
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Produtos</h2>
+    <div class="card shadow pt-5">
+      <div class="d-flex justify-content-between p-3">
+        <h2 class="page-section-heading text-uppercase text-secondary mb-0">Lista de Produtos</h2>
+        <button type="button" class="btn-add btn btn-outline-success" (click)="addProduto()">Adicionar</button>
+      </div>
       <br>
       <div class="row justify-content-center">
         <div>
           <div *ngIf="produtos.length == 0" class="alert alert-primary" role="alert">
-            Não existe produtos cadastrados
+            Não existem produtos cadastrados
           </div>
-          <table *ngIf="produtos.length > 0" class="table">
+          <table *ngIf="produtos.length > 0" class="table table-hover justify-content-center text-center">
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -20,74 +23,29 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td></td>
-                <td><input class="form-control" type="text"></td>
-                <td><input class="form-control" type="text"></td>
-                <td><input class="form-control" type="number"></td>
-                <td><input class="form-control" type="number"></td>
-                <button type="button" class="btn-add btn btn-outline-success" (click)="addProduto()">Adicionar</button>
-              </tr>
               <tr *ngFor="let produto of produtos">
                 <td>{{produto.id}}</td>
                 <td>{{produto.nome}}</td>
                 <td>{{produto.descricao}}</td>
-                <td>{{produto.valor}}</td>
+                <td>R$ {{produto.valor}}</td>
                 <td>{{produto.qtdEstoque}}</td>
                 <td>
-                  <ul style="list-style: none;">
-                    <li class="btn-li"><button class="btn btn-outline-warning"
-                        (click)="editarContato(produto.id)">Alterar</button></li>
-                    <li class="btn-li"><button class="btn btn-outline-danger"
-                        (click)="excluir(produto)">Excluir</button>
-                    </li>
-                  </ul>
+
+                  <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-warning"
+                      (click)="editarContato(produto.id)">Alterar</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="excluir(produto)">Excluir</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
+          <mat-paginator [length]="produtos.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+          </mat-paginator>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<div>
-  <div class="search-bar">
-    <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
-      <input
-        type="text"
-        placeholder="Search..."
-        formControlName="searchValue"
-      />
-    </form>
-  </div>
-  <table class="users-table">
-    <thead>
-      <tr>
-        <th
-          *ngFor="let column of columns"
-          class="users-table-cell"
-          (click)="sortTable(column)"
-        >
-          {{ capitalize(column) }}
-          <span *ngIf="isDescSorting(column)">▼</span>
-          <span *ngIf="isAscSorting(column)">▲</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let produto of produtos">
-        <td *ngFor="let column of columns" class="users-table-cell">
-          {{ produto[column] }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<ng-container matColumnDef="position">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-</ng-container>
+<br>
+<br><br><br><br>
