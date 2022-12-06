@@ -41,7 +41,7 @@ export class ProdutoService {
       }
 
 
-      public deleteClienteById(id:number){
+      public deleteProdutoById(id:number){
         firstValueFrom(this.http.delete(`${this.apiUrl}/produtos/${id}`))
       }
 

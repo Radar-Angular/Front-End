@@ -27,12 +27,12 @@ export class ProdutoFormularioComponent implements OnInit {
   ngOnInit(): void {
     let id: number = this.routerParams.snapshot.params['id']
     if (id) {
-      this.atualizarCliente(id)
+      this.atualizarProduto(id)
     }
   }
 
 
-  private async atualizarCliente(id: number) {
+  private async atualizarProduto(id: number) {
     this.titulo = "Alterando Produto"
     this.produto = await this.produtoService.getProdutoById(id)
     console.log(this.produto)

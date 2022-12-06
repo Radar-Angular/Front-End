@@ -34,9 +34,16 @@ export class ClienteFormularioComponent implements OnInit {
   IniciarFormulario() {
     this.clienteForm = this.formsBuilder.group({
       nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      valor: [0, Validators.required],
-      qtdEstoque: [0, Validators.required]
+      telefone: ['', Validators.required],
+      email: ['', Validators.required],
+      cpf: ['', Validators.required],
+      cep: ['', Validators.required],
+      logradouro: ['', Validators.required],
+      numero: ['', Validators.required],
+      bairro: ['', Validators.required],
+      cidade: ['', Validators.required],
+      estado: ['', Validators.required],
+      complemento: ['', Validators.required],
     })
   }
 
@@ -46,11 +53,11 @@ export class ClienteFormularioComponent implements OnInit {
   }
 
   salvar() {
-    if (this.cliente.id > 0) {
-      this.clienteService.putCliente(this.clienteForm.value)
+    if (this.cliente && this.cliente.id > 0) {
+      this.clienteService.putCliente(this.cliente)
     }
     else {
-      this.clienteService.postCliente(this.clienteForm.value)
+      this.clienteService.postCliente(this.cliente)
     }
     this.router.navigate(['clientes'])
   }

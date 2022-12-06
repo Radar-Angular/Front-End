@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Cliente } from 'src/app/shared/models/cliente';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
-import { ClientesModule } from '../clientes.module';
 
 @Component({
   selector: 'app-cliente-lista',
@@ -10,10 +11,12 @@ import { ClientesModule } from '../clientes.module';
 })
 export class ClienteListaComponent implements OnInit {
 
-  clientes: Cliente[] = []  
+  clientes: Cliente[] = []    
+  cliente: Cliente = {} as Cliente
 
   constructor(
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,16 @@ export class ClienteListaComponent implements OnInit {
   private async buscarClientes() {
     this.clientes = await this.clienteService.getClientes();
     this.qtdClientes = this.clientes.length
+  }
+
+  editarCliente(idCliente: number) {
+    this.router.navigate([`clientes/${idCliente}/editar`])
+  }
+
+  async excluir(cliente: Cliente) {
+    if (confirm("Deseja mesmo excluir esse cliente?"))
+      await this.clienteService.deleteClienteById(cliente.id)
+    this.buscarClientes()
   }
   
 }
