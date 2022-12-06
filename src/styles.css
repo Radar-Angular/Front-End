@@ -15,3 +15,7 @@
 .cor-laranja-farmarcas {
     color: #fe4c02;
 }
+
+.bg-dark {
+  background-color: var(--brackground-dark);
+}
