@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/shared/models/cliente';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { PedidoService } from 'src/app/shared/services/pedido.service';
@@ -12,7 +14,8 @@ export class PedidoListaComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private route: Router
     ) { }
 
     
@@ -22,20 +25,25 @@ export class PedidoListaComponent implements OnInit {
   }
 
   public pedidos:Pedido[] = []
+  public clientes:Cliente[]= []
+  cliente:Cliente = {} as Cliente
+  idCliente: Number = 0
 
  private async getPedidos(){
    this.pedidos  =  await this.pedidoService.getPedidos();
   }
 
-  private async getClienteById(id: Number){
-    let cliente = 0
-        for(let i = 0; i < this.pedidos.length; i++){
-          if(this.pedidos[i].id ==  id){
-
-        }
+  public async getClientes(){
+    this.clientes = await this.clienteService.getClientes();
   }
 
-  
 
-  }
+
+alterar(idContato: Number){
+  this.route.navigate([`pedidos/${idContato}/editar`])
+}
+
+
+
+
 }

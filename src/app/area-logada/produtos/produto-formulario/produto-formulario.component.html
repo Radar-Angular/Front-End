@@ -1,33 +1,33 @@
-
-<div class="container pt-5">
-
+<div class="container pt-5 card shadow" style="margin-top: 100px;">
     <div>
-        <form [formGroup]="produtoForm" class="form-group">
+        <form id="produtoForm" class="form-group">
             <div>
+                <h2>{{titulo}}</h2>
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome"
+                    [(ngModel)]="produto.nome">
             </div>
             <div class="form-group">
                 <label for="descricao">descricao</label>
-                <input type="text" class="form-control" id="descricao" placeholder="Descricão" formControlName="descricao" >
+                <input type="text" class="form-control" id="descricao"  placeholder="Descrição" name="descricao" [(ngModel)]="produto.descricao" >
             </div>
             <div class="form-group">
                 <label for="Valor">Valor</label>
-                <input type="number" class="form-control" id="valor" placeholder="Valor" formControlName="valor">
+                <input type="number" class="form-control" id="valor" placeholder="Valor" name="valor"
+                    [(ngModel)]="produto.valor">
             </div>
             <div class="form-group">
                 <label for="qtdEstoque">Quantidade</label>
-                <input type="number" class="form-control" id="qtdEstoque" placeholder="qtdEstoque" formControlName="qtdEstoque">
+                <input type="number" class="form-control" id="qtdEstoque" placeholder="Qtd. Estoque" name="qtdEstoque" [(ngModel)]="produto.qtdEstoque">
             </div>
-
-
-            <button class="p-2 align-center" (click)="salvar()">
-                {{produto.id ? 'Salvar Contato' : 'Criar contato'}}
-            </button>
+            <br>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-danger" routerLink="/produtos">Cancelar</button>
+              <button type="button" class="btn btn-outline-success" (click)="salvar()">{{produto.id ? 'Salvar Produto' : 'Adicionar'}}</button>
+            </div>
+            <!-- <button class="p-2 align-center" (click)="salvar()">
+                {{produto.id ? 'Salvar Produto' : 'Adicionar novo Produto'}}
+            </button> -->
         </form>
-
     </div>
-
-
-
 </div>

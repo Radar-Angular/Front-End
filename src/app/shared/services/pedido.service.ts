@@ -15,11 +15,10 @@ export class PedidoService {
 
 
     public async getPedidos():Promise<Pedido[]> {
-      let pedidos:Pedido[] = await firstValueFrom(this.http.get<Pedido[]>(`${this.apiUrl}/pedidos`))
+      let pedidos:Pedido[] = await firstValueFrom(this.http.get<Pedido[]>(`${this.apiUrl}/pedidos/all`))
       return pedidos
     }
 
-   
     public async getPedidoById(id:number) : Promise<Pedido>{
       return await firstValueFrom(this.http.get<Pedido>(`${this.apiUrl}/pedidos/${id}`))
     }
@@ -34,7 +33,7 @@ export class PedidoService {
     }
 
     public async putPedido(pedido: Pedido): Promise<Pedido>{
-      let PedidoRest:Pedido = await firstValueFrom(this.http.post<Pedido>(`${this.apiUrl}/pedidos/${pedido.id}`, pedido))
+      let PedidoRest:Pedido = await firstValueFrom(this.http.post<Pedido>(`${this.apiUrl}/pedidos/`, pedido))
       return PedidoRest
     }
 

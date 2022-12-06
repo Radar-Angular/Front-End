@@ -1,21 +1,19 @@
-import { Component, OnInit, ɵpublishDefaultGlobalUtils } from '@angular/core';
-import { end } from '@popperjs/core';
+import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
-import { bindCallback } from 'rxjs';
 import { Cliente } from 'src/app/shared/models/cliente';
-import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { Pedido } from 'src/app/shared/models/pedido';
-import { PedidoService } from 'src/app/shared/services/pedido.service';
 import { Produto } from 'src/app/shared/models/produto';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
+import { PedidoService } from 'src/app/shared/services/pedido.service';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-fluxo-de-caixa',
+  templateUrl: './fluxo-de-caixa.component.html',
+  styleUrls: ['./fluxo-de-caixa.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FluxoDeCaixaComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
@@ -28,8 +26,6 @@ export class HomeComponent implements OnInit {
     this.calculavalores();
     this.getPedidos();
     this.getProdutos();
-    this.getTotalVendasPorMes();
-    this.getPedidosMeses();
   }
 
   pedido: Pedido[] = []
@@ -39,16 +35,15 @@ export class HomeComponent implements OnInit {
   produto: Produto[] = []
   produtos: Produto[] = []
 
-
   valorTotal: number = 0
   async calculavalores() {
     this.pedido = await this.pedidoService.getPedidos()
     this.pedido.forEach(item => {
       this.valorTotal = this.valorTotal + item.valorTotal
+      console.log(this.valorTotal)
     });
-    return this.valorTotal
   }
-
+  
   // TABELA PEDIDOS
   private async getPedidos() {
     this.pedidos = await this.pedidoService.getPedidos();
@@ -62,62 +57,6 @@ export class HomeComponent implements OnInit {
   private async getProdutos() {
     this.produtos = await this.produtoService.getProdutos();
   }
-
-
-
-  public async getDiasVendas() {
-    const dias: number[] = []
-    this.pedidos = await this.pedidoService.getPedidos();
-    this.pedidos.forEach(pedido => dias.push(new Date(pedido.data).getDate()));
-    console.log(dias);
-    return dias
-  }
-
-
- async getPedidosMeses() {
-    const meses: number[] = []
-    let valorMes: number[] =[]
-    let valor: number = 0
-    this.produtos = await this.produtoService.getProdutos();
-    this.pedidos.forEach(pedido => meses.push(new Date(pedido.data).getMonth()),
-    this.pedidos.forEach(item => {
-    valor = valor + item.valorTotal
-    if(!meses)
-    valorMes.push(valor)
-    }))
-    console.log(this.pedidos)
-    valorMes.push(valor)
-    console.log(valor)
-    console.log(valorMes)
-    return meses
-}
-
-
-
-
-
-async getTotalVendasPorMes() {
-    let venda = 0
-    const vendas: Array<Array<number>> = [[],[],[], [], [], [], [], [], [], [], [], []]
-    this.pedidos = await this.pedidoService.getPedidos()
-    this.pedidos.forEach((pedido, index, array) => {
-        for(let i = 0; i < vendas.length; i++) {
-            if(new Date(pedido.data).getMonth() == i){
-              this.pedidos.forEach(valor => {
-               venda = venda + valor.valorTotal 
-              });      
-            }
-            vendas[i].push(venda)
-          }
-
-          // console.log(vendas);
-    })
-   return vendas
-}
-
-
-
-
 
 
   RenderChart() {
@@ -145,7 +84,6 @@ async getTotalVendasPorMes() {
         }
       }
     });
-
 
 
     const myChart2 = new Chart("grafPedidos", {
@@ -186,3 +124,4 @@ async getTotalVendasPorMes() {
     });
   }
 }
+

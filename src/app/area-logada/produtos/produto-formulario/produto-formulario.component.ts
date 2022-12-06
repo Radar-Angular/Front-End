@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute,Router  } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { response } from 'express';
 import { Produto } from 'src/app/shared/models/produto';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 
@@ -12,54 +14,40 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 export class ProdutoFormularioComponent implements OnInit {
 
   constructor(
-    private produtoService:ProdutoService,
-    private formsBuilder: FormBuilder,
+    private produtoService: ProdutoService,
     private router: Router,
-    private route: ActivatedRoute,
+    private http: HttpClient,
+    private routerParams: ActivatedRoute,
   ) { }
 
   titulo: string = "Novo Produto"
   public produto: Produto = {} as Produto
-  produtoForm!: FormGroup;
-
 
 
   ngOnInit(): void {
-    this.IniciarFormulario();
-    let id:number =this.route.snapshot.params['id']
-    if(id){
+    let id: number = this.routerParams.snapshot.params['id']
+    if (id) {
       this.atualizarProduto(id)
     }
   }
 
-  IniciarFormulario(){
-    this.produtoForm = this.formsBuilder.group({
-      nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      valor: [0, Validators.required],
-      qtdEstoque: [0, Validators.required]
-    })
 
-  }
-
-
-  private async atualizarProduto(id: Number){
+  private async atualizarProduto(id: number) {
     this.titulo = "Alterando Produto"
-    this.produto = await this.produtoService.getProdutoById(this.produto.id)
+    this.produto = await this.produtoService.getProdutoById(id)
+    console.log(this.produto)
   }
 
 
-salvar(){
-  if(this.produto.id > 0){
-    this.produtoService.putProduto(this.produtoForm.value)
+  salvar() {
+    if (this.produto && this.produto.id > 0) {
+      this.produtoService.putProduto(this.produto)
+      console.log("caiu aq no put")
+    }
+    else {
+      this.produtoService.postProduto(this.produto)
+      console.log("caiu aqui no post")
+    }
+    this.router.navigate(['produtos'])
   }
-  else{
-    this.produtoService.postProduto(this.produtoForm.value)
-  }
-  this.router.navigate(['produtos'])
-}
-
-
-
-
 }

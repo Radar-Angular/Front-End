@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+:root {
+  --brackground-dark: #1a1918;
+  --laranja-farmarcas: #fe4c02;
+  --laranja-logo: #ff5510;
+}
+
 .fundo-laranja-farmarcas {
     background-color: RGBA(254, 76, 2, 0.65);
 
@@ -8,4 +14,8 @@
 
 .cor-laranja-farmarcas {
     color: #fe4c02;
+}
+
+.bg-dark {
+  background-color: var(--brackground-dark);
 }

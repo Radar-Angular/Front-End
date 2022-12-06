@@ -1,0 +1,18 @@
+.element-radius {
+  border-radius: 1em;
+}
+
+.centaliza {
+  display: flex;
+  justify-content: center;
+}
+
+.laranja-main {
+  color: #fff;
+  background-color: var(--laranja-farmarcas);
+}
+
+.laranja-main:hover {
+  background-color: #e9612b;
+  transition: 200ms;
+}

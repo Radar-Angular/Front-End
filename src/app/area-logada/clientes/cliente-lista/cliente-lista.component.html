@@ -1,105 +1,84 @@
-<section class="page-section" id="contact" style="margin-top: 50px;">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Clientes</h2>
-    </div>
-    <div class="card-body">
+<section class="page-section" id="contact" style="margin-top: 100px;">
+    <div class="container pt-5 card shadow">
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Lista de Clientes</h2>
         <div class="table-responsive">
-            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="dataTables_length" id="dataTable_length"><label>Mostrar
-                                <select name="dataTable_length" aria-controls="dataTable"
-                                    class="form-select form-control form-control-sm">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                </select> clientes</label></div>
-                    </div>
-                    <div class="col-sm-12 span-6" style="padding-right: 2em">
-                        <div id="dataTable_filter" class="dataTables_filter"><label>Pesquisar:<input type="search"
-                                    class="form-control form-control-sm" placeholder=""
-                                    aria-controls="dataTable"></label></div>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0"
-                            role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead class="bg-info">
-                                <tr role="row">
-                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                        colspan="1" aria-sort="ascending"
-                                        aria-label="Id: activate to sort column descending" style="width: 60px;">ID
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Nome: activate to sort column ascending" style="width: 173px;">
-                                        Nome</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="CPF: activate to sort column ascending" style="width: 48px;">CPF
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="E-mail: activate to sort column ascending" style="width: 55px;">
-                                        E-mail</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Telefone: activate to sort column ascending" style="width: 115px;">
-                                        Telefone</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Endereço: activate to sort column ascending" style="width: 275px;">
-                                        Endereço</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr *ngFor="let cliente of clientes">
-                                    <td>{{cliente.id}}</td>
-                                    <td>{{cliente.nome}}</td>
-                                    <td>{{cliente.cpf}}</td>
-                                    <td>{{cliente.email}}</td>
-                                    <td>{{cliente.telefone}}</td>
-                                    <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-5">
-                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Mostrando 1 a
-                            +lenght_atual de +length__clientes clientes</div>
-                    </div>
-
-                    <!-- Botões mudar página (Anterior + números + Próxima) -->
-                    <!-- ATUALIZAR PARA CONTAGEM REAL -->
-                    <div class="col-sm-12 col-md-7">
-                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
-                                        href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-                                        class="page-link">Anterior</a></li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                        data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
-                                        aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                        class="page-link">Próxima</a></li>
-                            </ul>
-                        </div>
+          <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <!-- Campo de Pesquisar (ATUALIZAR COM FUNÇÃO BUSCAR QUE FUNCIONE) -->
+            <div class="row">
+                <div class="col-sm-12 col-md-10">
+                    <div id="dataTable_filter" class="dataTables_filter">
+                      <label>
+                        Pesquisar:
+                        <input type="search" class="form-control form-control-sm" placeholder="Digite o ID" aria-controls="dataTable">
+                      </label>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <br>
+            <!-- LISTA CLIENTES -->
+            <div class="row text-center justify-content-center">
+              <table class="table table-hover" style="width: 100%;">
+                  <thead>
+                    <tr role="row">
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>CPF</th>
+                      <th>E-mail</th>
+                      <th>Telefone</th>
+                      <th>Endereço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.cpf}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.telefone}}</td>
+                    <td>{{cliente.logradouro}}, {{cliente.numero}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- MOSTRADOR DE CONTAGEM DE CLIENTES EXIBIDOS vs TOTAL -->
+            <!-- ARRUMAR POSICAO NA PAGINA -->
+            <!-- <div class="row justify-content-md-center">
+                <div class="col-sm-3" style="float:none; margin:auto;">
+                    Exibindo 1 a (atual) de {{qtdClientes}} clientes</div>
+            </div> -->
+
+            <!-- <div class="row justify-content-md-center"> -->
+                <!-- Botões mudar página (Anterior + números + Próxima) -->
+                <!-- ATUALIZAR PARA CONTAGEM REAL -->
+                <!-- <div class="col-sm-3" style="float:none; margin:auto;">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
+                                    href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                    class="page-link">Anterior</a></li>
+                            <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                    data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                            <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
+                                    aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                    class="page-link">Próxima</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+            <br>
+          </div>
+      </div>
+  </div>
 
 </section>

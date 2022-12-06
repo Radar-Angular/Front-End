@@ -1,0 +1,20 @@
+.footer-bg {
+  background-color: var(--laranja-farmarcas);
+}
+
+.footer-bg a {
+  margin-left: 10px;
+  color: #fff;
+}
+
+.footer-bg p {
+  color: #fff;
+  display: inline-block;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  margin-top: 50em;
+}
