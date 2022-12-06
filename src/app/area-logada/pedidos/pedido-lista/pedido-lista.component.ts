@@ -16,10 +16,8 @@ export class PedidoListaComponent implements OnInit {
     private pedidoService: PedidoService,
     private clienteService: ClienteService,
     private router: Router,
-    private activedRoute: ActivatedRoute
+    // private activedRoute: ActivatedRoute
   ) { }
-
-
 
   ngOnInit(): void {
     this.getPedidos()
@@ -35,7 +33,7 @@ export class PedidoListaComponent implements OnInit {
     this.pedidos = await this.pedidoService.getPedidos();
     //  this.getCliente();
     // this.getClienteById(this.pedido.id);
-    this.getClienteAtual();
+    // this.getClienteAtual();
   }
 
   async excluir(pedido: Pedido) {
@@ -44,35 +42,35 @@ export class PedidoListaComponent implements OnInit {
     this.getPedidos()
   }
 
-  // public async getClientes() {
-  //   this.clientes = await this.clienteService.getClientes();
-  // }
-
-  //  getClienteById(id: any) {
-  //   this.cliente = this.clienteService.getClienteById();
-  //   return this.cliente.id
-  // }
-
-
-  // getClientesAtual() {
-  //   this.pedidos.forEach(pedido => {
-  //     this.getClienteById(pedido.idCliente)
-  //     this.clientes.forEach(cliente => {
-  //       if (this.pedido.idCliente == this.cliente.id) {
-  //         this.cliente = cliente
-  //       }
-  //     });
-  //   });
-  // }
-
-  getClienteAtual() {
-    const idCliente = this.activedRoute.snapshot.paramMap.get('id')
-    this.clienteService.getClienteById(idCliente).subscribe({ next: (resp: Cliente) => this.onSucesso(resp) })
+  public async getClientes() {
+    this.clientes = await this.clienteService.getClientes();
   }
 
-  onSucesso(resp: Cliente) {
-    this.nomeCliente = resp.nome
+   async getClienteById(id: any) {
+    this.cliente = await this.clienteService.getClienteById(id);
+    return this.cliente.id
   }
+
+
+  getClientesAtual() {
+    this.pedidos.forEach(pedido => {
+      this.getClienteById(pedido.idCliente)
+      this.clientes.forEach(cliente => {
+        if (this.pedido.idCliente == this.cliente.id) {
+          this.cliente = cliente
+        }
+      });
+    });
+  }
+
+  // getClienteAtual() {
+  //   const idCliente = this.activedRoute.snapshot.paramMap.get('id')
+  //   this.clienteService.getClienteById(idCliente).subscribe({ next: (resp: Cliente) => this.onSucesso(resp) })
+  // }
+
+  // onSucesso(resp: Cliente) {
+  //   this.nomeCliente = resp.nome
+  // }
 
   // getCliente() {
   //   this.pedidos.forEach(pedido => {
@@ -83,7 +81,7 @@ export class PedidoListaComponent implements OnInit {
   //     }
   //   });
   // }
-  
+
   public async addPedido() {
     this.router.navigate([`pedidos/novo`])
   }
