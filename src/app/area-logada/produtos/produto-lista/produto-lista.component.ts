@@ -52,7 +52,7 @@ export class ProdutoListaComponent implements OnInit {
 
   async excluir(produto: Produto) {
     if (confirm("Deseja mesmo excluir esse produto?"))
-      await this.produtoService.deleteClienteById(produto.id)
+      await this.produtoService.deleteProdutoById(produto.id)
     this.buscarProdutos()
   }
 

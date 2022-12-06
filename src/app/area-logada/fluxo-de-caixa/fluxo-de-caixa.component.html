@@ -14,7 +14,7 @@
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Vendas - (ADD MÊS ATUAL)</p>
-                        <h4 class="mb-0">R$ 53.000</h4>
+                        <h4 class="mb-0">R$ {{valorTotal | number: '.2-2'}}</h4>
                     </div>
                 </div>
                 <hr class="dark horizontal my-0">
@@ -94,6 +94,8 @@
 
     <br>
     <br>
+    
+    
     <!-- TABELA PEDIDOS  -->
     <div class="row">
         <div class="col-sm-12">
@@ -131,68 +133,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let pedido of pedidos">
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">01 (Pedido.id)</h6>
+                                                <h6 class="mb-0 text-sm">{{pedido.id}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">José (Pedido.ClienteId)</h6>
+                                                <h6 class="mb-0 text-sm" *ngIf="pedido.idCliente">{{cliente.id}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">R$ 103,54
-                                                    (Pedido.ValorTotal) </h6>
+                                                <h6 class="mb-0 text-sm">R$ {{pedido.valorTotal}} </h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">25/11/2022</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">02 (Pedido.id)</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Marcia (Pedido.ClienteId)</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">R$ 93,54
-                                                    (Pedido.ValorTotal) </h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">27/11/2022</h6>
+                                                <h6 class="mb-0 text-sm">{{pedido.data | date:'dd/MM/yyyy'}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -243,78 +214,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let produto of produtos">
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">01 (Produto.id)</h6>
+                                                <h6 class="mb-0 text-sm">{{produto.id}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Nolvagina (Produto.Nome)</h6>
+                                                <h6 class="mb-0 text-sm">{{produto.nome}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Remédio para dor de cabeça
-                                                    (Produto.Descricao) </h6>
+                                                <h6 class="mb-0 text-sm">{{produto.descricao}} </h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">50</h6>
+                                                <h6 class="mb-0 text-sm">{{produto.qtdEstoque}}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">R$ 55,55</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">02 (Produto.id)</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Dipirona (Produto.Nome)</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Remédio para enxaqueca
-                                                    (Produto.Descricao) </h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">34</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">R$ 23,55</h6>
+                                                <h6 class="mb-0 text-sm">R$ {{produto.valor | number: '.2-2'}}</h6>
                                             </div>
                                         </div>
                                     </td>

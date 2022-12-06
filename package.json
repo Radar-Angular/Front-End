@@ -24,6 +24,7 @@
     "@popperjs/core": "^2.10.2",
     "apexcharts": "^3.36.3",
     "bootstrap": "^5.2.3",
+    "cep-promise": "^4.2.0",
     "chart.js": "^4.0.1",
     "ng2-charts": "^4.0.2",
     "rxjs": "~7.5.0",

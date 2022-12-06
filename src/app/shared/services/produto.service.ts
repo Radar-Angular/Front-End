@@ -36,12 +36,12 @@ export class ProdutoService {
       }
 
       public async putProduto(produto: Produto): Promise<Produto>{
-        let produtoRest:Produto = await firstValueFrom(this.http.post<Produto>(`${this.apiUrl}/produtos`, produto))
+        let produtoRest:Produto = await firstValueFrom(this.http.put<Produto>(`${this.apiUrl}/produtos`, produto))
         return produtoRest
       }
 
 
-      public deleteClienteById(id:number){
+      public deleteProdutoById(id:number){
         firstValueFrom(this.http.delete(`${this.apiUrl}/produtos/${id}`))
       }
 
