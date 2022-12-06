@@ -27,8 +27,7 @@
                 <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
                 <td>R$ {{pedido.valorTotal}}</td>
                 <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
-                <td><a class="btn btn-outline-warning" (click)="alterar(pedido.id)">Alterar</a></td>
-                <!-- <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td> -->
+                <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
               </tr>
             </tbody>
           </table>
