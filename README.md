@@ -18,6 +18,7 @@ Projeto desenvolvido como parte da formação "Código do Futuro - Farmarcas".
   - Forecast faturamento
 
 ## Links para aplicações
+[Apresentação do Projeto](https://docs.google.com/presentation/d/e/2PACX-1vTLgNDoL8szsJhF063TT5OLNHf4RcSofxCyl8QOMQ9QVroAn0TQBZ5KeicaNlflPg/pub?start=false&loop=false&delayms=3000) <br>
 [JIRA - RadarFarma](https://grupo7-radar.atlassian.net/jira/software/projects/G7/boards/1)<br>
 [Swagger - Documentação da API](http://3.84.99.234:8080/swagger-ui/index.html#/)
 
