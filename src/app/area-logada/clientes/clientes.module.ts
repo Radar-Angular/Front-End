@@ -6,6 +6,7 @@ import { ClienteListaComponent } from './cliente-lista/cliente-lista.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CpfPipe } from 'src/app/shared/pipes/cpf.pipe';
+import { PhonePipe } from 'src/app/shared/pipes/phone.pipe';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { CpfPipe } from 'src/app/shared/pipes/cpf.pipe';
     ClienteListaComponent,
     ClienteFormularioComponent,
     CpfPipe,
+    PhonePipe,
   ],
   imports: [
     CommonModule,
