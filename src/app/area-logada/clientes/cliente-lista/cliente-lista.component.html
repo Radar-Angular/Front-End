@@ -35,7 +35,7 @@
             <tr *ngFor="let cliente of clientes">
               <td>{{cliente.id}}</td>
               <td>{{cliente.nome}}</td>
-              <td>{{cliente.cpf}}</td>
+              <td>{{cliente.cpf | cpf }}</td>
               <td>{{cliente.email}}</td>
               <td>{{cliente.telefone}}</td>
               <td>{{cliente.logradouro}}, {{cliente.numero}}</td>

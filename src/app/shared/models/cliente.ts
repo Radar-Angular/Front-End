@@ -3,7 +3,7 @@ export interface Cliente {
     nome: String,
     telefone: String,
     email: String,
-    cpf: Number,
+    cpf: number,
     cep: Number,
     logradouro: String,
     numero: Number,
