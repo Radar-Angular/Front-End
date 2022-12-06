@@ -37,9 +37,9 @@ export class PedidoFormularioComponent implements OnInit {
     this.salvarPedido();
   }
 
+  
   salvarPedido(){
     this.pedidoService.postPedido(this.pedido)
     this.router.navigate(['pedidos'])
   }
-
 }

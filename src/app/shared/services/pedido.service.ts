@@ -33,7 +33,7 @@ export class PedidoService {
     }
 
     public async putPedido(pedido: Pedido): Promise<Pedido>{
-      let PedidoRest:Pedido = await firstValueFrom(this.http.post<Pedido>(`${this.apiUrl}/pedidos/${pedido.id}`, pedido))
+      let PedidoRest:Pedido = await firstValueFrom(this.http.post<Pedido>(`${this.apiUrl}/pedidos/`, pedido))
       return PedidoRest
     }
 
