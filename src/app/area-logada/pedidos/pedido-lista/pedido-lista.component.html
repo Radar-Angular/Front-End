@@ -23,7 +23,7 @@
           <tbody>
             <tr *ngFor="let pedido of pedidos">
               <td>{{pedido.id}}</td>
-              <td>{{cliente.nome}}</td>
+              <td>{{pedido.idCliente}}</td>
               <td>R$ {{pedido.valorTotal | number: '.2-2'}}</td>
               <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
               <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
