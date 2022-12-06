@@ -32,26 +32,6 @@
             </tbody>
           </table>
         </div>
-        <table *ngIf="pedidos.length > 0" class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Cliente</th>
-              <th scope="col">ValorTotal</th>
-              <th scope="col">data</th>
-              <th scope="col" colspan="2">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos">
-              <td>{{pedido.id}}</td>
-              <td *ngIf="pedido.idCliente">{{cliente.id}}</td>
-              <td>R$ {{pedido.valorTotal}}</td>
-              <td>{{pedido.data | date:'dd/MM/yyyy'}}</td>
-              <td><button class="btn btn-danger" (click)="excluir(pedido)">Excluir</button></td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
