@@ -2,7 +2,7 @@
 
 
 export interface Pedido {
-    id: Number,
+    id: number,
     valorTotal: number,
     data: Date,
     idCliente: number
